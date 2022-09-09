@@ -1,63 +1,175 @@
-.form{
-    width: 50vw;
-    height: 75vh;
+*{
+    margin: 0;
+    padding: 0;
+    font-family: roboto;
+}
+.container{
     display: flex;
-    margin: auto;
+    flex-direction: row;
+    align-items: center;
+}
+.img-container{
+    display: flex;
     flex-direction: column;
+    padding: 5% 5% 5% 7%;
+    width: 50%;
+}
+.img-container img{
+    height: 14em;
+    object-fit: contain;
+}
+.heading-container{
+    height: 20em;
+}
+.heading-container h2{
+    font-weight: 600;
+    font-size: 4.5em;
+}
+.heading-container p{
+    margin: 1em 0 1em 0;
+    font-weight: lighter;
+    font-size: 1.2em;
+    color: #5f6368;
+    line-height: 1.5em;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+    width: 700px;
+    max-width: 420px;
+    border: 0.5px #dadce0 solid;
+    border-radius: 8px;
+    /* position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%); */
+    padding: 2em 1% 0 1%;
 }
 
-.form-field{    
-    position: relative;
-    padding: 0.5em;
+.form-field{
     display: flex;
-    width: 13em;
-    height: 2.1em;
-    margin: 0.4em;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 216px;
+    height: 2em;
+    min-width: 0;
+    margin-bottom: 2em;
 }
-.form-field>input{
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0.5em;
-    width: 13em;
-    height: 2.1em;
-    cursor: text;
-    border: 1px solid gray;
-    border-radius: 0.25em;
+.form-field input{
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    padding: 0.8em;
+    border: 0.5px #dadce0 solid;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
 }
-.form-field>label{
+.form-field input::placeholder{
+    opacity: 0;
+    color: #5f6368;
+}
+.form-field label{
     position: absolute;
-    top: 0.3em;
-    left: 0;
-    padding: 0.3em 0.75em;
+    top: 0.8em;
+    left: 0.9em;
     cursor: text;
     pointer-events:none;
     transition: all 0.2s ease-in-out;
-    color: gray;
+    color: #5f6368;
+    font-size: 0.8em;
 }
-input::placeholder{
-    opacity: 0;
+
+.short{
+    width: 103px;
 }
-input:focus{
-    outline: none;
-    border: 2px solid hsl(225, 100%, 60%);
+
+.short-fields{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+input:focus {    
+    border:2px solid #3366ff;   
 }
 input:focus+label{
-    cursor: text;
-    font-size: 0.9em;
-    margin-top: -1em;
-    margin-left: 0.4em;
+    transform: translateY(-1.25em);
     background-color: white;
     color: hsl(225, 100%, 60%);
-   
+    font-size: 0.7em; 
+      
 }
 input:not(:placeholder-shown)+label{
-    cursor: text;
-    font-size: 0.9em;
-    margin-top: -1em;
-    margin-left: 0.4em;
+    transform: translateY(-1.25em);
     background-color: white;
-
+    font-size: 0.7em;
+}
+.button{
+    border-radius: 0.3em;
+    background-color: #3366ff;
+}
+.form-field button{ 
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%); 
+    background-color: rgba(255, 255, 255, 0);
+    outline: none;
+    border: none;
+    color: white;
 }
 
+@media screen and (max-width: 480px) {
+    .form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 650px;
+        max-width: 1200px;
+        border: none;
+        padding: 0% 0px;
+    }
+    .short-fields{
+        flex-direction: column;
+        gap: 0;
+    }
+    .short{
+        width: 216px;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .img-container{
+        display: flex;
+        flex-direction: column;
+        padding: 5% 5% 5% 7%;
+        width: 50%;
+    }
+    .img-container img{
+        height: 5em;
+        object-fit: contain;
+    }
+    .heading-container{
+        height: 10em;
+    }
+    .heading-container h2{
+        font-weight: 200;
+        font-size: 1.5em;
+    }
+    .heading-container p{
+        margin: 1em 0 1em 0;
+        font-weight: lighter;
+        font-size: 0.9em;
+        color: #5f6368;
+        line-height: 1.1em;
+    }
+ }
