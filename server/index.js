@@ -1,6 +1,7 @@
 const express= require("express");
 const sign_in = require("./routes/sign-in")
 const sign_up = require("./routes/sign-up")
+const user = require("./routes/user.routes");
 const bodyParser = require("body-parser");
 const path = require("path");
 
@@ -17,6 +18,7 @@ app.get("/",function(req,res){
 
 app.use("/sign-in",sign_in);
 app.use("/sign-up",sign_up);
+app.use("/sign-up",user);
 
 
 
