@@ -1,8 +1,14 @@
 const express = require("express");
 const router = express.Router();
+const path = require("path");
 
-router.route("/sign-in")
+router.route("/")
     .get(function(req,res){
-        res.send(__dirname+"../../views/signin.html")
-    })
-    .post()
+        res.sendFile(path.resolve("views/signin.html"))
+    });
+
+//  router.get('/', (req, res) => {
+//     res.sendFile(path.resolve("views/signin.html"))
+//       })
+
+module.exports = router;

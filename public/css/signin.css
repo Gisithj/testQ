@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+}
+.img-container img{
+    height: 14em;
+    object-fit: contain;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+    width: 400px;
+    max-width: 420px;
+    border: 0.5px #dadce0 solid;
+    border-radius: 8px;
+    padding: 2em 1% 0 1%;
+}
+a{
+    text-decoration: none;
+    color: #3366ff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9em;
+}
