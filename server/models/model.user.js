@@ -4,27 +4,69 @@ const User = function(user){
     this.fName = user.fName;
     this.lName = user.lName;
     this.email = user.email;
-    this.nic = user.nic;
+    this.nicNo = user.nicNo;
     this.address = user.address;
     this.zipCode = user.zipCode;
+    this.telNo = user.telNo;
     this.username = user.username;
     this.password = user.password;
 } 
 
-// function createUser(user,result){
 
-// }
-User.create = (user, result) => {
-    db.query("INSERT INTO user SET ?", user, (err, res) => {
-      if (err) {
-        console.log("error: ", err);
-        result(err, null);
-        return;
-      }
-  
-      console.log("created user: ", { id: res.insertId, ...user });
-      result(null, { id: res.insertId, ...user });
-    });
+User.create = (user) => {
+
+     return new Promise((resolve,reject)=>{
+      db.query("INSERT INTO user SET ?", user, (err, res) => {
+        if (err) {
+          reject(err)
+          console.log("error: ", err);
+        }
+        
+        resolve({ id: res.insertId, ...user });
+        console.log("created user: ", { id: res.insertId, ...user });
+        ;
+      });
+    })
+    
   };
 
+  User.findOne = (field,userData) =>{
+
+    return new Promise((resolve,reject)=>{
+      db.query(`SELECT * FROM user WHERE ${field}= ?`,[userData],(err,res)=>{
+        if(err){          
+            console.log("error: ", err);
+            reject(err);
+            
+        }        
+        if(res!=null || res!='undefined'){        
+            console.log(`found users when checking in ${field}`, res);
+            resolve(res);
+        }
+            
+        
+    });
+    })
+    
+  };
   module.exports = User;
+
+  // User.findOne = (field,userData,result) =>{
+  //   db.query(`SELECT * FROM user WHERE ${field}= ?`,[userData],(err,res)=>{
+  //       if(err){          
+  //           console.log("error: ", err);
+  //           result(err, null);
+  //           return;
+  //       }
+        
+  //       if(res.length){        
+  //           console.log("found users: ", res.length);
+  //           result(null, res);
+  //           return;
+  //       }
+  //       result(null, res.length);
+            
+        
+  //   });
+  // };
+

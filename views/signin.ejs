@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/styles.css">
+<%- include("./partials/header.ejs")%>
     <link rel="stylesheet" href="/public/css/signin.css">
     <title>Document</title>
 </head>
@@ -17,8 +10,19 @@
         <div class="form">
             <div class="img-container">
                 <img src="/public/images/logo-transparent.png" alt="">
+                <% if (typeof isError !="undefined" || typeof errorDescription !="undefined" ) { %>
+                    <% if (isError) { %>
+                        <div class="errorToast show">
+                        <p><%=errorDescription%></p>
+                    <% }else{ %> 
+                        <div class="errorToast">
+                        <%}%>
+                <% }else{ %>               
+                <div class="errorToast">
+                <%}%>
             </div>
-            <form action="" method="post">
+            
+            <form action="/sign-in" method="post">
                 <div class="form-field">
                     <input type="text" name="username" placeholder="none">
                     <label for="username">Username</label>

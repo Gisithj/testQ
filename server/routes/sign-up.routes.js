@@ -4,8 +4,8 @@ const path = require("path");
 
 router.route("/")
     .get(function(req,res){
-        res.sendFile(path.resolve("views/signup.html"))
-    })
+        res.render(path.resolve("views/signup"))
+    });
     // .post(function(req,res){
     //     res.redirect("/sign-in")
     //     const fName = req.body.fName;

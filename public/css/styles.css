@@ -67,6 +67,7 @@ input:not(:placeholder-shown)+label{
 .button{
     border-radius: 0.3em;
     background-color: #3366ff;
+    
 }
 .form-field button{ 
     width: 100%;
@@ -78,6 +79,25 @@ input:not(:placeholder-shown)+label{
     outline: none;
     border: none;
     color: white;
+    cursor: pointer;
+    height: 2em;
+}
+.errorField{
+    border: 2px solid red !important;
+}
+.errorLabel{
+    color: red !important;
+}
+.disabledButton{
+    background-color: #5f6368 !important;
+}
+
+.errorToast p{
+    font-size: 0.9em;
+    color: red;
+}
+.show {
+    display: block !important;
 }
 
 @media screen and (max-width: 480px) {
