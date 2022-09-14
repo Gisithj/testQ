@@ -1,9 +1,12 @@
 const User = require("../models/model.user");
 const path = require("path");
 const login = require("./login.controller");
+const bcrypt = require('bcrypt');
+
 var isError = false;
 var errorDescription="";
 var isExist = false;
+const saltRounds = 10;
 
 
   function isAlreadyExist(field, userData) {
@@ -18,10 +21,11 @@ var isExist = false;
             }
         }).catch(err=>{
             console.log(err);
-              res.status(500).send({
-                message:
-                  err.message || "Some error occurred while quering findOne email.",
-              });
+              // res.status(500).send({
+              //   message:
+              //     err.message || "Some error occurred while quering findOne email.",
+              // reject(false);
+              // });
              reject(false);
         })
     })
@@ -77,8 +81,16 @@ const existanceValidation =(user)=>{
     })
 }
 
-function create(req, res) {
+async function create(req, res) {
+
+  var password = "";
+  await bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
    
+      password = hash;
+      console.log(password);
+    
+});
+   console.log(password);
   const user = {
     fName: req.body.fName,
     lName: req.body.lName,
@@ -88,9 +100,9 @@ function create(req, res) {
     zipCode: req.body.zipCode,
     telNo: req.body.telNo,
     username: req.body.username,
-    password: req.body.password,
+    password:password,
   };
-
+console.log(user);
   existanceValidation(user).then(result=>{
     if(result==true){
         isError=true;

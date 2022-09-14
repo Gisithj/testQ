@@ -1,15 +1,26 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
-const user = require("../controllers/login.controller")
+const passport = require("../controllers/passport");
+
 
 router.route("/")
     .get(function(req,res){
-        res.render("signin");
+      isLoggedIn(req,res,function(){
+        res.redirect('/~' + req.user.username)
+      });
     })
-    .post(function(req,res){
-        user.login(req,res)
-    })
-;
+    
+    
+    .post(passport.authenticate('local', { failureRedirect: '/sign-in', failureMessage: true }),
+    function(req, res) {
+      res.redirect('/~' + req.body.username);
+    });
 
+const isLoggedIn = function(req, res, next) {
+  if (req.user) {
+      next();
+  } else {
+      res.render('signin');
+  }
+}
 module.exports = router;
