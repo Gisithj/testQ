@@ -1,0 +1,113 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.img-container{
+    display: flex;
+    flex-direction: column;
+    padding: 5% 5% 5% 7%;
+    width: 50%;
+}
+.img-container img{
+    height: 14em;
+    object-fit: contain;
+}
+.heading-container{
+    height: 20em;
+}
+.heading-container h2{
+    font-weight: 600;
+    font-size: 4.5em;
+}
+.heading-container p{
+    margin: 1em 0 1em 0;
+    font-weight: lighter;
+    font-size: 1.2em;
+    color: #5f6368;
+    line-height: 1.5em;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+    width: 700px;
+    max-width: 512px;
+    border: 0.5px #dadce0 solid;
+    border-radius: 8px;
+    padding: 2em 1% 0 1%;
+}
+.inner-form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.form-row{
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+}
+.errorToast{
+    width: 180px;
+    height: 50px;
+    padding: 0.8em;
+    display: none;
+    border: 2px red solid;
+    margin-bottom: 1em;
+}
+@media screen and (max-width: 480px) {
+    .form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 930px;
+        max-width: 1200px;
+        border: none;
+        padding: 0% 0px;
+    }
+    .inner-form{
+        display: flex;
+        flex-wrap: wrap;
+        
+        gap: 1em;
+        flex-direction: column;
+    }
+    .form-row{
+        display: flex;
+        gap: 1em;
+        flex-direction: column;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .img-container{
+        display: flex;
+        flex-direction: column;
+        padding: 5% 5% 5% 7%;
+        width: 50%;
+    }
+    .img-container img{
+        height: 5em;
+        object-fit: contain;
+    }
+    .heading-container{
+        height: 10em;
+    }
+    .heading-container h2{
+        font-weight: 200;
+        font-size: 1.5em;
+    }
+    .heading-container p{
+        margin: 1em 0 1em 0;
+        font-weight: lighter;
+        font-size: 0.9em;
+        color: #5f6368;
+        line-height: 1.1em;
+    }
+ }

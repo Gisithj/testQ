@@ -1,25 +1,5 @@
 const User = require("../models/model.user");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // const login = (req,res)=>{
 
 //     const user = {

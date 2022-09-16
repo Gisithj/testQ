@@ -1,4 +1,4 @@
-const User = require("../models/model.user");
+const Business = require("../models/model.business");
 const path = require("path");
 const login = require("./login.controller");
 const bcrypt = require('bcrypt');
@@ -9,10 +9,10 @@ var isExist = false;
 const saltRounds = 10;
 
 
-  function isAlreadyExist(field, userData) {
+  function isAlreadyExist(field, businessData) {
 
     return new Promise((resolve,reject)=>{
-        User.findOne(field, userData).then(result=>{
+      Business.findOne(field, businessData).then(result=>{
             if(result!=0 && result!=null){
               isExist = true;
                 resolve(true);
@@ -32,9 +32,9 @@ const saltRounds = 10;
     
 }
 
-const existanceValidation =(user)=>{
+const existanceValidation =(business)=>{
     return new Promise((resolve,reject)=>{
-        isAlreadyExist("email", user.email).then(result=>{
+        isAlreadyExist("email", business.email).then(result=>{
             if(result!=true){       
                  isExist = false;
                  errorDescription=""
@@ -43,7 +43,7 @@ const existanceValidation =(user)=>{
                 isExist = true;
                return resolve(isExist);
             }
-          }).then( isAlreadyExist("username", user.username).then(result=>{
+          }).then( isAlreadyExist("username", business.username).then(result=>{
             if(result!=true){        
                  isExist = false;
                  errorDescription=""
@@ -52,7 +52,7 @@ const existanceValidation =(user)=>{
                 isExist = true;
                 return resolve(isExist);
             }
-          })).then( isAlreadyExist("telNo", user.telNo).then(result=>{
+          })).then( isAlreadyExist("telNo", business.telNo).then(result=>{
             if(result!=true){     
                  isExist = false;
                  errorDescription=""
@@ -61,7 +61,7 @@ const existanceValidation =(user)=>{
                 isExist = true;
                 return resolve(isExist);
             }
-          })).then( isAlreadyExist("nicNo", user.nicNo).then(result=>{
+          })).then( isAlreadyExist("nicNo", business.nicNo).then(result=>{
             if(result!=true){     
                  isExist = false;
                  errorDescription="";
@@ -87,11 +87,11 @@ async function create(req, res) {
   await bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
    
       password = hash;
-      console.log(password);
     
 });
-   console.log(password);
-  const user = {
+  const business = {
+    bName: req.body.bName,
+    bType: req.body.bType,
     fName: req.body.fName,
     lName: req.body.lName,
     email: req.body.email,
@@ -102,27 +102,27 @@ async function create(req, res) {
     username: req.body.username,
     password:password,
   };
-console.log(user);
-  existanceValidation(user).then(result=>{
+
+  existanceValidation(business).then(result=>{
     if(result==true){
         isError=true;
-        res.render("user.signup.ejs", {
-            
+        res.render("business.signup.ejs", {            
               isError: isError,
               errorDescription: errorDescription,
             });
     }else if(result==false){
         console.log("here");
-        User.create(user).then(result=>{
-          //  res.render("userDashboard");
-          req.login(user, function(err) {
+        Business.create(business).then(result=>{
+         
+          req.login(business, function(err) {
             if (err) { return next(err); }
-            return res.redirect('/userDashboard');
+            return res.redirect('/businessDashboard');
           });
+          
         }).catch(err =>{
             res.status(500).send({
                 message:
-                  err.message || "Some error occurred while creating the user.",
+                  err.message || "Some error occurred while creating the business.",
               });
         });
     }

@@ -15,7 +15,7 @@
     min-width: 0;
     margin-bottom: 2em;
 }
-.form-field input{
+.form-field input,.form-field select{
     box-sizing: border-box;
     width: 100%;
     outline: none;
@@ -24,6 +24,7 @@
     border-radius: 4px;
     transition: all 0.2s ease-in-out;
 }
+
 .form-field input::placeholder{
     opacity: 0;
     color: #5f6368;
@@ -49,10 +50,10 @@
     gap: 10px;
 }
 
-input:focus {    
+input:focus,select:focus {    
     border:2px solid #3366ff;   
 }
-input:focus+label{
+input:focus+label,select:focus+label{
     transform: translateY(-1.25em);
     background-color: white;
     color: hsl(225, 100%, 60%);
@@ -66,8 +67,10 @@ input:not(:placeholder-shown)+label{
 }
 .button{
     border-radius: 0.3em;
-    background-color: #3366ff;
-    
+    background-color: #3366ff;   
+}
+.disabledButton{
+    background-color: #5f6368 !important;
 }
 .form-field button{ 
     width: 100%;
@@ -88,10 +91,6 @@ input:not(:placeholder-shown)+label{
 .errorLabel{
     color: red !important;
 }
-.disabledButton{
-    background-color: #5f6368 !important;
-}
-
 .errorToast p{
     font-size: 0.9em;
     color: red;

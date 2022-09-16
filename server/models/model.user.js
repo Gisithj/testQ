@@ -51,22 +51,5 @@ User.create = (user) => {
   };
   module.exports = User;
 
-  // User.findOne = (field,userData,result) =>{
-  //   db.query(`SELECT * FROM user WHERE ${field}= ?`,[userData],(err,res)=>{
-  //       if(err){          
-  //           console.log("error: ", err);
-  //           result(err, null);
-  //           return;
-  //       }
-        
-  //       if(res.length){        
-  //           console.log("found users: ", res.length);
-  //           result(null, res);
-  //           return;
-  //       }
-  //       result(null, res.length);
-            
-        
-  //   });
-  // };
+
 

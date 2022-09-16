@@ -1,8 +1,12 @@
 const express= require("express");
 const db = require("./models/db")
-const sign_in = require("./routes/sign-in.routes")
-const sign_up = require("./routes/sign-up.routes")
-const user = require("./routes/user.routes");
+const user_sign_in = require("./routes/user.sign-in.routes")
+const business_sign_in = require("./routes/business.sign-in.routes")
+const user = require("./routes/user.signup.routes");
+const business = require("./routes/business.signup.routes");
+const userDashboard = require("./routes/user.Dashboard.routes")
+const businessDashboard = require("./routes/business.Dashboard.routes")
+const logout = require("./routes/log-out.routes")
 const bodyParser = require("body-parser");
 const path = require("path");
 const ejs = require("ejs")
@@ -43,12 +47,20 @@ app.use(passport.session());
 app.use(passport.initialize());
 
 app.get("/",function(req,res){
-    res.sendFile(path.resolve("views/index.html"))
+    res.render("index")
 });
 
-app.use("/sign-in",sign_in);
-app.use("/sign-up",sign_up);
-app.use("/sign-up",user);
+app.use("/user-sign-in",user_sign_in);
+app.use("/business-sign-in",business_sign_in);
+app.use("/user-sign-up",user);
+app.use("/business-sign-up",business);
+app.use("/userDashboard",userDashboard)
+app.use("/userDashboard/myQueues",userDashboard)
+app.use("/userDashboard/findQueues",userDashboard)
+app.use("/userDashboard/profile",userDashboard)
+app.use("/userDashboard/settings",userDashboard)
+app.use("/businessDashboard",businessDashboard)
+app.use("/sign-out",logout)
 
 
 
