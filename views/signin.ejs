@@ -1,0 +1,49 @@
+<%- include("./partials/header.ejs")%>
+    <link rel="stylesheet" href="/public/css/signin.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        
+        <div class="form">
+            <ul class="tab-group">
+                <li class="tab active" name="user">User</li>
+                <li class="tab" name="business">Business</li>
+            </ul>
+            <div class="img-container">
+                <img src="/public/images/logo-transparent.png" alt="">
+                <% if (typeof isError !="undefined" || typeof errorDescription !="undefined" ) { %>
+                    <% if (isError) { %>
+                        <div class="errorToast show">
+                        <p><%=errorDescription%></p>
+                    <% }else{ %> 
+                        <div class="errorToast">
+                        <%}%>
+                <% }else{ %>               
+                <div class="errorToast">
+                <%}%>
+            </div>
+            
+            <form action="/user-sign-in" method="post">
+                <div class="form-field">
+                    <input type="text" name="username" placeholder="none">
+                    <label for="username">Username</label>
+                </div>
+                <div class="form-field">
+                    <input type="text" name="password" placeholder="none">
+                    <label for="password">Password</label>
+                </div>
+                <div class="form-field button">
+                    <button type="submit">Sign In</button>
+                </div>
+                <a href="/user-sign-up">Regiser Now</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="../public/js/sign-in.js"></script>
+</body>
+
+</html>
