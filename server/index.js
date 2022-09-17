@@ -51,15 +51,17 @@ app.get("/",function(req,res){
 });
 
 app.use("/user-sign-in",user_sign_in);
-app.use("/business-sign-in",business_sign_in);
 app.use("/user-sign-up",user);
-app.use("/business-sign-up",business);
 app.use("/userDashboard",userDashboard)
 app.use("/userDashboard/myQueues",userDashboard)
 app.use("/userDashboard/findQueues",userDashboard)
 app.use("/userDashboard/profile",userDashboard)
 app.use("/userDashboard/settings",userDashboard)
+
+app.use("/business-sign-up",business);
+app.use("/business-sign-in",business_sign_in);
 app.use("/businessDashboard",businessDashboard)
+app.use("/businessDashboard/profile",businessDashboard)
 app.use("/sign-out",logout)
 
 

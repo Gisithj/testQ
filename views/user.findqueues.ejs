@@ -1,201 +1,202 @@
 <%- include("../views/partials/header.ejs") %>
 
-    <link rel="stylesheet" href="/public/css/dashboard.css">
-    <title>Dashboard</title>
-    </head>
+<link rel="stylesheet" href="/public/css/dashboard.css">
+<title>Dashboard</title>
+</head>
 
-    <body>
+<body>
 
-        <div class="main-container">
-           
-            <div class="side-bar" >
-                <div class="navbar  w-auto  max-height-vh-100" id="sidenav-collapse-main">
-                  <ul class="navbar-nav">
-                    <li class="nav-item " >
-                      
-                          <a class="nav-link" href="/userDashboard">
-                              <div class="">Home</div>
-                          </a>
-                     
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link " href="/userDashboard/myQueues">
-                        
-                        <span class="">My Queues</span>
-                      </a>
-                    </li>
-                    <li class="nav-item active-nav-item">
-                      <a class="nav-link " href="/userDashboard/findQueues">
-                        
-                        <span class="">Find Queues</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link  " href="/userDashboard/profile">
-                        
-                        <span class="">Profile</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link  " href="/userDashboard/settings">
-                        
-                        <span class="">Settings</span>
-                      </a>
-                    </li>
-                    
-                    
-                  </ul>
-                  </div>
-            </div>
-            <div class="secondary-container">
-                <div class="top-bar">
-                    
-                    <button class="button-signOut" type="submit"><a href="/sign-out">Log out</a></button>
-                    <p class="text-username"><%=username %></p>
-                </div>
-                <div class="table-area">
-                   
-                        <div class="table-container">
-                            <div class="table-card-header">
-                                <h3 class="">Projects table</h3>
-                              
-                            </div>
-                            <div class="card-body px-0 pb-2">
-                                <table class="table">
-                                  <thead class="table-header">
-                                    <tr>
-                                      <th class="table-header-column">Project</th>
-                                      <th class="table-header-column">Budget</th>
-                                      <th class="table-header-column">Status</th>
-                                      <th class="table-header-column">Completion</th>
-                                      <th></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr class="row">
-                                      
-                                          <td>
-                                            <div class="d-flex px-2">
-                                              Asna
-                                            </div>
-                                          </td>
-                                          <td>
-                                            <p class="">$2,500</p>
-                                          </td>
-                                          <td>
-                                            <span class="">working</span>
-                                          </td>
-                                          <td>
-                                            <p class="">60%</p>
-                                          </td>
-                                      <td class="align-middle">
-                                        <button class="btn btn-link text-secondary mb-0">
-                                          <i class="fa fa-ellipsis-v text-xs"></i>
-                                        </button>
-                                      </td>
-                                    </tr></a>
-                                    <tr class="row">
-                                        <td>
-                                          <div class="d-flex px-2">
-                                            Asna
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <p class="">$2,500</p>
-                                        </td>
-                                        <td>
-                                          <span class="">working</span>
-                                        </td>
-                                        <td>
-                                          <p class="">60%</p>
-                                        </td>
-                                        <td class="align-middle">
-                                          <button class="btn btn-link text-secondary mb-0">
-                                            <i class="fa fa-ellipsis-v text-xs"></i>
-                                          </button>
-                                        </td>
-                                      </tr>
-                                      <tr class="row">
-                                        <td>
-                                          <div class="d-flex px-2">
-                                            Asna
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <p class="">$2,500</p>
-                                        </td>
-                                        <td>
-                                          <span class="">working</span>
-                                        </td>
-                                        <td>
-                                          <p class="">60%</p>
-                                        </td>
-                                        <td class="align-middle">
-                                          <button class="btn btn-link text-secondary mb-0">
-                                            <i class="fa fa-ellipsis-v text-xs"></i>
-                                          </button>
-                                        </td>
-                                      </tr>
-                                      <tr class="row">
-                                        <td>
-                                          <div class="d-flex px-2">
-                                            Asna
-                                          </div>
-                                        </td>
-                                        <td>
-                                          <p class="">$2,500</p>
-                                        </td>
-                                        <td>
-                                          <span class="">working</span>
-                                        </td>
-                                        <td>
-                                          <p class="">60%</p>
-                                        </td>
-                                        <td class="align-middle">
-                                          <button class="btn btn-link text-secondary mb-0">
-                                            <i class="fa fa-ellipsis-v text-xs"></i>
-                                          </button>
-                                        </td>
-                                      </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                          
-                        </div>
-                      </div>
-              
-            </div>
-        </div>
-        <script src="../public/js/userDashboard.js"></script>
+<div class="main-container">
+
+  <div class="side-bar ">
+
+    <div class="navbar " id="sidenav-collapse-main">
+
+      <ul class="navbar-nav">
+        <li class="nav-item-logo">
+          <a class="nav-link " href="/userDashboard/myQueues">
+            <img src="../public/images/logo-whitebg.png" width="185">
+
+          </a>
 
 
+        </li>
+        <br>
+        <li class="nav-item ">
+          <a class="nav-link " href="/userDashboard/myQueues">
 
+            <span class="">My Queues</span>
+          </a>
+        </li>
+        <li class="nav-item active-nav-item">
+          <a class="nav-link " href="/userDashboard/findQueues">
 
+            <span class="">Find Queues</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  " href="/userDashboard/profile">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <span class="">Profile</span>
+          </a>
+        </li>
         
-    </body>
 
-    </html>
+
+      </ul>
+    </div>
+  </div>
+  <div class="secondary-container">
+
+    <div class="top-bar">
+
+      <button class="button-signOut" type="submit"><a href="/sign-out">Log out</a></button>
+      <p class="text-username">gg</p>
+
+      <!--Search bar-->
+      <form action="/user.findqueues" class="search-bar">
+        <div class="search-bar-container">
+          <input type="text" placeholder=" search queues" name="search">
+          <button class="btn-search"><i class=" fas fa-xl fa-magnifying-glass search-bar-icon"></i> </button>
+        </div>
+
+      </form>
+    </div>
+
+    <h1>On Going Queues</h1>
+<div class="table-area">
+
+  <div class="table-container">
+    <div class="table-card-header">
+      <h3 class="">Projects table</h3>
+
+    </div>
+    <div class="card-body px-0 pb-2">
+      <table class="table">
+        <thead class="table-header">
+          <tr>
+            <th class="table-header-column">Project</th>
+            <th class="table-header-column" style="text-align: center;">Budget</th>
+            <th class="table-header-column" style="text-align: center;">Status</th>
+            <th class="table-header-column" style="text-align: center;">Completion</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="row">
+            <td>
+              <div class="d-flex px-2">
+                Gas
+              </div>
+            </td>
+            <td class="comp">
+              <p>$2,500</p>
+            </td>
+            <td class="comp">
+              <span>working</span>
+            </td>
+            <td class="comp">
+              <p>60%</p>
+            </td>
+
+            <td class="align-middle">
+              <!-- <button class="btn btn-link text-secondary mb-0">
+                                        <i class="fa fa-ellipsis-v text-xs"></i> -->
+              <button class="dlt"> Delete </button>
+
+            </td>
+          </tr>
+
+
+
+          <tr class="row">
+            <td>
+              <div class="d-flex px-2">
+                Asna
+              </div>
+            </td>
+            <td class="comp">
+              <p>$2,500</p>
+            </td>
+            <td class="comp">
+              <span>working</span>
+            </td>
+            <td class="comp">
+              <p>60%</p>
+            </td>
+            <td class="align-middle">
+
+              <!-- <button class="btn btn-link text-secondary mb-0">
+                                          <i class="fa fa-ellipsis-v text-xs"></i> 
+                                        </button> -->
+              <button class="dlt"> Delete </button>
+
+            </td>
+          </tr>
+          <tr class="row">
+            <td>
+              <div class="d-flex px-2">
+                Asna
+              </div>
+            </td>
+            <td class="comp">
+              <p>$2,500</p>
+            </td>
+            <td class="comp">
+              <span>working</span>
+            </td>
+            <td class="comp">
+              <p>60%</p>
+            </td>
+            <td class="align-middle">
+              <!-- <button class="btn btn-link text-secondary mb-0">
+                                          <i class="fa fa-ellipsis-v text-xs"></i>
+                                        </button> -->
+              <button class="dlt"> Delete </button>
+            </td>
+          </tr>
+          <tr class="row">
+
+            <td>
+              <div class="d-flex px-2">
+                Asna
+              </div>
+            </td>
+            <td class="comp">
+              <p>$2,500</p>
+            </td>
+            <td class="comp">
+              <span>working</span>
+            </td>
+            <td class="comp">
+              <p>60%</p>
+            </td>
+            <td class="align-middle">
+              <!-- <button class="btn btn-link text-secondary mb-0">
+                                          <i class="fa fa-ellipsis-v text-xs"></i>
+                                        </button> -->
+              <button class="dlt"> Delete </button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  </div>
+
+</div>
+
+
+<script src="../public/js/userDashboard.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>

@@ -4,16 +4,8 @@ const path = require("path");
 const auth = require("./auth.routes");
 const { route } = require("./user.sign-in.routes");
 
+
 router.route("/")
-    .get(function(req,res){
-        auth.isLoggedIn(req,res,function(){
-            res.render("userDashboard",{
-                username:req.user.username
-            })
-        })
-        // res.render(path.resolve("views/userDashboard"))
-    })
-router.route("/myQueues")
 .get(function(req,res){
     auth.isLoggedIn(req,res,function(){
         res.render("user.myqueue.ejs",{
