@@ -241,3 +241,40 @@ tbody tr:hover{
 .middle{
     display: flex;   
 }
+
+.search-bar{
+    width: 100%;
+    top: 2%;
+    left: 16%;
+    right: 15%; 
+     
+}
+.search-bar-container{
+    position: relative;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    height: 40px;
+    width: 40%;
+    margin-left: 10px;
+}
+.btn-search{
+    cursor: pointer;
+    border: none;
+}
+.icon{
+    color:#3366ff;
+}
+.search-bar input{
+    width:65%;
+    height: 60px;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    height: 40px;
+    padding: 0 50px;
+    top: 20%; 
+    font-size: 18px;
+}
