@@ -278,3 +278,66 @@ tbody tr:hover{
     top: 20%; 
     font-size: 18px;
 }
+.comp{
+    text-align: center;
+}
+.profileh{
+    float: left;
+     display: flex;
+     gap: 30px;
+     align-items: center;
+ 
+   }
+ 
+   .profiled{
+     float: left;
+     width: 70%;
+ 
+   }
+   .plist{
+     display: flex;
+     flex-direction: column;
+ 
+   }
+   .list{
+     margin-bottom: 5px;
+     padding: 12px;
+     width: 130px;
+     display: flex;
+     justify-content: flex-start;
+     flex-wrap: nowrap;
+     flex-direction: column-reverse;
+     
+ 
+   }
+   .list1{
+     /*margin-bottom: 10px;*/
+     width: 200px;
+     padding: 14px;
+     display: flex;
+     justify-content: flex-start;
+   }
+ 
+   .edtbtn{
+     width: 80px;
+     height: 25px;
+     background-color: white;
+     color: #3366ff;
+     border: 2px solid #3366ff;
+     border-radius: 5px;
+     margin-left: 10px;
+ }
+ .btn-container{
+     display: flex;
+     width: 100px;
+ }
+ 
+ .table_cont{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     height: 100%;
+     width: 100%;
+     margin-top: 20px;
+ }
+
