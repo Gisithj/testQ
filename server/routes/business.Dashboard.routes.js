@@ -12,6 +12,16 @@ router.route("/")
         })
         // res.render(path.resolve("views/userDashboard"))
     })
+ router.route("/profile")
+    .get(function(req,res){
+        console.log(req.user);
+        auth.isLoggedIn(req,res,function(){
+            console.log("isslogged called");
+            res.render("business.profile.ejs")
+        })
+        // res.render(path.resolve("views/userDashboard"))
+    })
+
 router.route("/sign-out")
     .post( function(req, res, next){
         console.log("here");
