@@ -40,9 +40,9 @@ passport.use("local-user",new LocalStrategy(function verify(username, password, 
     Business.findOne("username",username).then(result=>{
 
         if(result!=0 && result!=null){
-            console.log(result[0].user_Id);
+            console.log("int the local-business passport",result[0].user_Id);
             const business = {
-                id: result[0].user_Id,
+                id: result[0].b_Id,
                 username:result[0].username
               };
             bcrypt.compare(password, result[0].password ).then(function(result) {
@@ -75,7 +75,7 @@ passport.serializeUser(function(user, cb) {
   
   passport.deserializeUser(function(user, cb) {
     console.log("Deserialize");
-    console.log(user);
+    console.log(user.id);
     process.nextTick(function() {
       return cb(null, user);
     });

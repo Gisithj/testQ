@@ -14,7 +14,7 @@
 
       <ul class="navbar-nav">
         <li class="nav-item-logo">
-          <a class="nav-link " href="/userDashboard/myQueues">
+          <a class="nav-link " href="/userDashboard">
             <img src="../public/images/logo-whitebg.png" width="185">
 
           </a>
@@ -23,7 +23,7 @@
         </li>
         <br>
         <li class="nav-item ">
-          <a class="nav-link " href="/userDashboard/myQueues">
+          <a class="nav-link " href="/userDashboard">
 
             <span class="">My Queues</span>
           </a>
@@ -51,13 +51,13 @@
     <div class="top-bar">
 
       <button class="button-signOut" type="submit"><a href="/sign-out">Log out</a></button>
-      <p class="text-username">gg</p>
+      <p class="text-username"><%= username%></p>
 
       <!--Search bar-->
-      <form action="/user.findqueues" class="search-bar">
+      <form action="/userDashboard/findQueues" method="post" class="search-bar">
         <div class="search-bar-container">
           <input type="text" placeholder=" search queues" name="search">
-          <button class="btn-search"><i class=" fas fa-xl fa-magnifying-glass search-bar-icon"></i> </button>
+          <button class="btn-search"><i class=" fas fa-xl fa-magnifying-glass icon"></i> </button>
         </div>
 
       </form>
@@ -68,7 +68,7 @@
 
   <div class="table-container">
     <div class="table-card-header">
-      <h3 class="">Projects table</h3>
+      <h3 class="">Queeue List</h3>
 
     </div>
     <div class="card-body px-0 pb-2">
@@ -83,103 +83,42 @@
           </tr>
         </thead>
         <tbody>
+            <%if(queueData!==false){%>
+              <% for(var i=0; i<queueData.length; i++) {%>
 
-          <tr class="row">
-            <td>
-              <div class="d-flex px-2">
-                Gas
-              </div>
-            </td>
-            <td class="comp">
-              <p>$2,500</p>
-            </td>
-            <td class="comp">
-              <span>working</span>
-            </td>
-            <td class="comp">
-              <p>60%</p>
-            </td>
-
-            <td class="align-middle">
-              <!-- <button class="btn btn-link text-secondary mb-0">
-                                        <i class="fa fa-ellipsis-v text-xs"></i> -->
-              <button class="dlt"> Delete </button>
-
-            </td>
-          </tr>
-
-
-
-          <tr class="row">
-            <td>
-              <div class="d-flex px-2">
-                Asna
-              </div>
-            </td>
-            <td class="comp">
-              <p>$2,500</p>
-            </td>
-            <td class="comp">
-              <span>working</span>
-            </td>
-            <td class="comp">
-              <p>60%</p>
-            </td>
-            <td class="align-middle">
-
-              <!-- <button class="btn btn-link text-secondary mb-0">
-                                          <i class="fa fa-ellipsis-v text-xs"></i> 
-                                        </button> -->
-              <button class="dlt"> Delete </button>
-
-            </td>
-          </tr>
-          <tr class="row">
-            <td>
-              <div class="d-flex px-2">
-                Asna
-              </div>
-            </td>
-            <td class="comp">
-              <p>$2,500</p>
-            </td>
-            <td class="comp">
-              <span>working</span>
-            </td>
-            <td class="comp">
-              <p>60%</p>
-            </td>
-            <td class="align-middle">
-              <!-- <button class="btn btn-link text-secondary mb-0">
-                                          <i class="fa fa-ellipsis-v text-xs"></i>
-                                        </button> -->
-              <button class="dlt"> Delete </button>
-            </td>
-          </tr>
-          <tr class="row">
-
-            <td>
-              <div class="d-flex px-2">
-                Asna
-              </div>
-            </td>
-            <td class="comp">
-              <p>$2,500</p>
-            </td>
-            <td class="comp">
-              <span>working</span>
-            </td>
-            <td class="comp">
-              <p>60%</p>
-            </td>
-            <td class="align-middle">
-              <!-- <button class="btn btn-link text-secondary mb-0">
-                                          <i class="fa fa-ellipsis-v text-xs"></i>
-                                        </button> -->
-              <button class="dlt"> Delete </button>
-
-            </td>
-          </tr>
+                <tr class="row">
+                  <td>
+                    <p><%= queueData[i].qName%></p>
+                  </p>
+                  </td>
+                  <td class="comp">
+                    <p><%= queueData[i].qType%></p>
+                  </td>
+                  <td class="comp">
+                    <p ><%= queueData[i].maxToken%></p>
+                  </td>
+                  <td class="comp">
+                    <p><%= queueData[i].tokenRemain%></p>
+                  </td>
+                  <td class="comp">
+                    <p><%= queueData[i].qStatus%></p>
+                  </td>
+                
+                  <td class="align-middle">
+              
+                    <div class ="middle">
+                      <button class="bedit"> Edit </button>
+                    
+                      <button class="dlt"> Delete </button>
+                    </div>
+                
+                  </td>
+            </tr>
+           <% } %>
+              <%}else{%>
+                  <td>No Queues</td>
+                <%}%>
+          
         </tbody>
       </table>
     </div>

@@ -23,20 +23,20 @@
           <br>
             </li>
             <li class="nav-item active-nav-item">
-              <a class="nav-link " href="/userDashboard/myQueues">
+              <a class="nav-link " href="/businessDashboard/myQueues">
                 
                 <span class="">My Business</span>
               </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link  " href="/userDashboard/profile">
+              <a class="nav-link  " href="/businesshboard/profile">
                 
                 <span class="">Profile</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  " href="/userDashboard/settings">
+              <a class="nav-link  " href="/businessDashboard/settings">
                 
                 <span class="">Settings</span>
               </a>
@@ -64,135 +64,52 @@
                
       <div class="table-container">
           <div class="table-card-header">
-              <h3 class="">Projects table</h3>
+              <h3 class="">My Queues</h3>
             
           </div>
           <div class="card-body px-0 pb-2">
               <table class="table">
                 <thead class="table-header">
                   <tr>
-                    <th class="table-header-column">Project</th>
-                    <th class="table-header-column" style="text-align: center;">Budget</th>
-                    <th class="table-header-column" style="text-align: center;">Status</th>
-                    <th class="table-header-column" style="text-align: center;">Completion</th>
-                    <th></th>
+                    <th class="table-header-column">Queue name</th>
+                    <th class="table-header-column" style="text-align: center;">Queue Type</th>
+                    <th class="table-header-column" style="text-align: center;">Max Token</th>
+                    <th class="table-header-column" style="text-align: center;">Remaining Tokens</th>
+                    <th class="table-header-column" style="text-align: center;">Queue</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <% for(var i=0; i<queueData.length; i++) {%>
+
+                    <tr class="row">
+                      <td>
+                        <p><%=queueData[i].qName%></p>
+                      </p>
+                      <td class="comp">
+                        <p><%=queueData[i].qType%></p>
+                      </td>
+                      <td class="comp">
+                        <p ><%=queueData[i].maxToken%></p>
+                      </td>
+                      <td class="comp">
+                        <p><%=queueData[i].tokenRemain%></p>
+                      </td>
+                      <td class="comp">
+                        <p><%=queueData[i].queueStatus%></p>
+                      </td>
+                    
+                  <td class="align-middle">
                   
-                  <tr class="row">
-                        <td>
-                          <div class="d-flex px-2">
-                            Gas
-                          </div>
-                        </td>
-                        <td class="comp">
-                          <p>$2,500</p>
-                        </td>
-                        <td class="comp">
-                          <span >working</span>
-                        </td>
-                        <td class="comp">
-                          <p>60%</p>
-                        </td>
+                      <div class ="middle">
+                        <button class="bedit"> Edit </button>
                       
-                    <td class="align-middle">
-                      <!-- <button class="btn btn-link text-secondary mb-0">
-                        <i class="fa fa-ellipsis-v text-xs"></i> -->
-                        <div class ="middle">
-                          <button class="bedit"> Edit </button>
-                        
-                          <button class="dlt"> Delete </button>
-                        </div>
-                      
-                    </td>
-                  </tr>
-            
+                        <button class="dlt"> Delete </button>
+                      </div>
+                    
+                  </td>
+                </tr>
+               <% } %>
 
-
-                  <tr class="row">
-                      <td>
-                        <div class="d-flex px-2">
-                          Asna
-                        </div>
-                      </td>
-                      <td class="comp">
-                        <p>$2,500</p>
-                      </td>
-                      <td class="comp">
-                        <span>working</span>
-                      </td>
-                      <td class="comp">
-                        <p>60%</p>
-                      </td>
-                      <td class="align-middle">
-                        
-                        <!-- <button class="btn btn-link text-secondary mb-0">
-                          <i class="fa fa-ellipsis-v text-xs"></i> 
-                        </button> -->
-                        <div class ="middle">
-                          <button class="bedit"> Edit </button>
-                        
-                          <button class="dlt"> Delete </button>
-                        </div>
-                        
-                        
-                      </td>
-                    </tr>
-                    <tr class="row">
-                      <td>
-                        <div class="d-flex px-2">
-                          Asna
-                        </div>
-                      </td>
-                      <td class="comp">
-                        <p>$2,500</p>
-                      </td>
-                      <td class="comp">
-                        <span>working</span>
-                      </td>
-                      <td class="comp">
-                        <p>60%</p>
-                      </td>
-                      <td class="align-middle">
-                        <!-- <button class="btn btn-link text-secondary mb-0">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button> -->
-                        <div class ="middle">
-                          <button class="bedit"> Edit </button>
-                        
-                          <button class="dlt"> Delete </button>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="row">
-                      
-                      <td>
-                        <div class="d-flex px-2">
-                          Asna
-                        </div>
-                      </td>
-                      <td class="comp">
-                        <p>$2,500</p>
-                      </td>
-                      <td class="comp">
-                        <span>working</span>
-                      </td>
-                      <td class="comp">
-                        <p>60%</p>
-                      </td>
-                      <td class="align-middle">
-                        <!-- <button class="btn btn-link text-secondary mb-0">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button> -->
-                        <div class ="middle">
-                          <button class="bedit"> Edit </button>
-                        
-                          <button class="dlt"> Delete </button>
-                        </div>
-
-                      </td>
-                    </tr>
                 </tbody>
               </table>
           </div>

@@ -53,7 +53,6 @@ app.get("/",function(req,res){
 app.use("/user-sign-in",user_sign_in);
 app.use("/user-sign-up",user);
 app.use("/userDashboard",userDashboard)
-app.use("/userDashboard/myQueues",userDashboard)
 app.use("/userDashboard/findQueues",userDashboard)
 app.use("/userDashboard/profile",userDashboard)
 app.use("/userDashboard/settings",userDashboard)

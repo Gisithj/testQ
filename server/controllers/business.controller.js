@@ -114,10 +114,7 @@ async function create(req, res) {
         console.log("here");
         Business.create(business).then(result=>{
          
-          req.login(business, function(err) {
-            if (err) { return next(err); }
-            return res.redirect('/businessDashboard');
-          });
+          return res.redirect('/business-sign-in');
           
         }).catch(err =>{
             res.status(500).send({
