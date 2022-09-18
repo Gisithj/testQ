@@ -25,6 +25,26 @@ Queue.create = (queue) => {
     })
     
   };
+
+  Queue.findBusinessOne = (field,userValue) =>{
+
+    return new Promise((resolve,reject)=>{
+      db.query(`SELECT * FROM test.queue WHERE b_id = ?;`,[userValue],(err,res)=>{
+        if(err){          
+            console.log("error: ", err);
+            reject(err);
+            
+        }        
+        if(res!=null || res!='undefined'){        
+            console.log(` findeBusinessOne queues when checking in ${field}`, res);
+            resolve(res);
+        }
+            
+        
+    });
+    })
+  };
+
   Queue.findOne = (field,userValue) =>{
 
     return new Promise((resolve,reject)=>{
@@ -38,7 +58,7 @@ Queue.create = (queue) => {
             
         }        
         if(res!=null || res!='undefined'){        
-            console.log(`found queues when checking in ${field}`, res);
+            console.log(` findOnefound queues when checking in ${field}`, res);
             resolve(res);
         }
             
@@ -64,7 +84,7 @@ Queue.create = (queue) => {
             
         }        
         if(res!=null || res!='undefined'){        
-            console.log(`found queues when checking in ${field}`, res);
+            console.log(`findAll found queues when checking in ${field}`, res);
             resolve(res);
         }
             
@@ -84,7 +104,7 @@ Queue.create = (queue) => {
             
         }        
         if(res!=null || res!='undefined'){        
-            console.log(`found queues when checking in queue`, res);
+            console.log(`findAllLike found queues when checking in queue`, res);
             resolve(res);
         }
             

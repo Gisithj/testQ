@@ -7,11 +7,20 @@ const queue = require("../controllers/queue.controller");
 router.route("/")
 .get(function(req,res){
     auth.isLoggedIn(req,res,function(){
-        queue.findOne("userr_Id",req.user.id).then(result=>{
-            if(result!=0 && result!=null){
-                res.render("userDashboard",{
+        queue.findBusinessOne("b_Id",req.user.id).then(result=>{
+            console.log(result);
+            if(result){
+                
+                res.render("businessDashboard",{
                     username: req.user.username,
                     queueData:result
+        
+                })
+            }else{
+                console.log("in the else");
+                res.render("businessDashboard",{
+                    username: req.user.username,
+                    queueData:null
         
                 })
             }
@@ -65,9 +74,7 @@ router.route("/sign-out")
             console.log("create queue");
             res.render("business.OpenQueue.ejs")
             // res.render("index")
-        })
-        // res.render(path.resolve("views/userDashboard"))
     })
+})
 
-    
 module.exports = router;

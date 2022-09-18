@@ -6,6 +6,7 @@ const auth = require("./auth.routes");
 
 router.route("/")
     .get(function(req,res){
+      
       auth.isLoggedIn(req,res,function(){
         res.redirect("/userDashboard");
         // res.redirect('/~' + req.user.username)

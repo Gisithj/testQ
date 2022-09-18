@@ -8,6 +8,26 @@ var errorDescription="";
 var isExist = false;
 const saltRounds = 10;
 
+function findBusinessOne(field, userValue,req,res) {
+
+  return new Promise((resolve,reject)=>{
+      Queue.findBusinessOne(field, userValue).then(result=>{
+          if(result!=0 && result!=null){
+              resolve(result);
+          }else{
+              resolve(false);
+          }
+      }).catch(err=>{
+          console.log(err);
+            res.status(500).send({
+              message:
+                err.message || "Some error occurred while quering findOne email.",
+            });
+           reject(false);
+      })
+  })
+  
+}
 
   function findOne(field, userValue,req,res) {
 
@@ -99,5 +119,5 @@ function findAllLike(userValue,req,res) {
 }
 
 
-module.exports = { create,findAll,findOne ,findAllLike};
+module.exports = { create,findAll,findOne ,findAllLike,findBusinessOne};
 

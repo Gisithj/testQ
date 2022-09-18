@@ -47,7 +47,7 @@ app.use(passport.session());
 app.use(passport.initialize());
 
 app.get("/",function(req,res){
-    res.render("index")
+    res.render("signin")
 });
 
 app.use("/user-sign-in",user_sign_in);
