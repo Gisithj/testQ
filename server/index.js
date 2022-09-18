@@ -1,6 +1,9 @@
 const express= require("express");
 const db = require("./models/db")
 const user_sign_in = require("./routes/user.sign-in.routes")
+const admin_sign_in = require("./routes/admin.sign-in.routes")
+const admin = require("./routes/admin.routes")
+const adminDashboard = require("./routes/admin.Dashboard.routes")
 const business_sign_in = require("./routes/business.sign-in.routes")
 const user = require("./routes/user.signup.routes");
 const business = require("./routes/business.signup.routes");
@@ -50,9 +53,14 @@ app.get("/",function(req,res){
     res.render("signin")
 });
 
+
 app.use("/user-sign-in",user_sign_in);
 app.use("/user-sign-up",user);
+app.use("/admin",admin)
+app.use("/admin-sign-in",admin_sign_in)
+app.use("/adminDashboard",adminDashboard)
 app.use("/userDashboard",userDashboard)
+app.use("/userDashboard/myQueues",userDashboard)
 app.use("/userDashboard/findQueues",userDashboard)
 app.use("/userDashboard/profile",userDashboard)
 app.use("/userDashboard/settings",userDashboard)
@@ -61,7 +69,9 @@ app.use("/business-sign-up",business);
 app.use("/business-sign-in",business_sign_in);
 app.use("/businessDashboard",businessDashboard)
 app.use("/businessDashboard/profile",businessDashboard)
+
 app.use("/sign-out",logout)
+
 
 
 
