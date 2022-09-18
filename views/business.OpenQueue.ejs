@@ -66,29 +66,23 @@
     <form id="createQueue"action="/" method="post" name="queue">
         <div class="short-field1">
             <div class="form-field ">
-                <input type="text" name="qName" placeholder="none" required >
-                <label for="qName">Queue Name</label>
+                <h2 id="currentToken">Current Token</h2>
             </div>
-            <div class="form-field ">
-              <select name="Qtype" id="Qtype" onchange="checkLimit()">
-                <option value='Limited'>Limited</option>
-                <option value="Unlimited">Unlimited</option>
-               
-              </select>
-                
-            </div>
+            
 
-            <div class="form-field ">
-            <input type="text" name="maxToken" id="maxToken" placeholder="none" required>
-            <label for="maxToken">Max Token</label>
-            </div>
+            
         </div>
         
     <center>
         <div class="form-field button">
-            <button name="submit"type="submit">Submit</button>
+            <button name="Done"type="submit">Done</button>
         </div>
-      </center>
+
+        <div  class="form-field button">
+            <button name="Skip"type="submit">Skip</button>
+        </div>
+
+    </center>
     </form>
 
     <SCRIPT LANGUAGE="JavaScript">

@@ -15,5 +15,13 @@ $(document).ready(function(){
         window.location = '/';
       });
 
+      $("#Qtype").click(function() {
+        if ($(this).is(":checked")) {
+           $("maxToken").prop("disabled", true);
+        } else {
+           $("#dropdown").prop("disabled", false);  
+        }
+      });
+
 
 });

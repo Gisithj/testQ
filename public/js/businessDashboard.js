@@ -11,9 +11,12 @@ $(document).ready(function(){
       }
     })
 
-    $("tbody tr").click(function() {
-        window.location = '/businessDashboard/createQueue';
-      });
+    // $("tbody tr").click(function() {
+    //     window.location = '/businessDashboard/createQueue';
+    //   });
+
+
+      
 
 
 });
