@@ -30,4 +30,13 @@ router.route("/sign-out")
         res.redirect('/sign-in');
         });
     });
+
+    router.route("/profile/edit")
+    .get(function(req,res){
+        console.log(req.user);
+        auth.isLoggedIn(req,res,function(){
+            res.render("business.profile.edit.ejs")
+        })
+        // res.render(path.resolve("views/userDashboard"))
+    })
 module.exports = router;
