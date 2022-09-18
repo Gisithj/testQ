@@ -11,17 +11,12 @@ $(document).ready(function(){
       }
     })
 
-    $("tbody tr").click(function() {
-        window.location = '/';
-      });
+    // $("tbody tr").click(function() {
+    //     window.location = '/businessDashboard/createQueue';
+    //   });
 
-      $("#Qtype").click(function() {
-        if ($(this).is(":checked")) {
-           $("maxToken").prop("disabled", true);
-        } else {
-           $("#dropdown").prop("disabled", false);  
-        }
-      });
+
+      
 
 
 });
