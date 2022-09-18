@@ -370,3 +370,16 @@ tbody tr:hover{
     display: flex;
     justify-content: center;
 }
+
+.button-create{
+    height:100%; 
+    width: 100px;
+    background-color: #3366ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+
+}
+
+

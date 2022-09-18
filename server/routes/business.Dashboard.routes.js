@@ -39,4 +39,27 @@ router.route("/sign-out")
         })
         // res.render(path.resolve("views/userDashboard"))
     })
+    router.route("/createQueue")
+    .get(function(req,res){
+        console.log(req.user);
+        auth.isLoggedIn(req,res,function(){
+            console.log("create queue");
+            res.render("business.CreateQueue.ejs")
+            // res.render("index")
+        })
+        // res.render(path.resolve("views/userDashboard"))
+    })
+
+    router.route("/OpenQueue")
+    .get(function(req,res){
+        console.log(req.user);
+        auth.isLoggedIn(req,res,function(){
+            console.log("create queue");
+            res.render("business.OpenQueue.ejs")
+            // res.render("index")
+        })
+        // res.render(path.resolve("views/userDashboard"))
+    })
+
+    
 module.exports = router;
