@@ -74,6 +74,9 @@ ul li{
     /* color: #3366ff;   */
     color: white;
 }
+.nav-link:hover{
+    color: #3366ff;
+}
 .nav-item-logo{
     object-fit: contain;
     height: 100px;

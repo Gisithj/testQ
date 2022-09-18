@@ -130,6 +130,49 @@ console.log(user);
 
 }
 
-module.exports = { create };
+function findOne(field, userValue,req,res) {
+  return new Promise((resolve,reject)=>{
+      User.findOne(field, userValue).then(result=>{
+          if(result!=0 && result!=null){
+            isExist = true;
+              resolve(result);
+          }else{
+              resolve(false);
+          }
+      }).catch(err=>{
+          console.log(err);
+            // res.status(500).send({
+            //   message:
+            //     err.message || "Some error occurred while quering findOne email.",
+            // });
+           reject(false);
+      })
+  })
+  
+}
+
+function findOne(field, userValue,req,res) {
+  return new Promise((resolve,reject)=>{
+      User.findOne(field, userValue).then(result=>{
+        console.log(result);
+          if(result!=0 && result!=null){
+            isExist = true;
+              resolve(result);
+          }else{
+              resolve(false);
+          }
+      }).catch(err=>{
+          console.log(err);
+            res.status(500).send({
+              message:
+                err.message || "Some error occurred while quering findOne email.",
+            });
+           reject(false);
+      })
+  })
+  
+}
+
+module.exports = { create ,findOne};
 
 

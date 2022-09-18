@@ -8,7 +8,6 @@ const Business = require("../models/model.business");
 
 passport.use("local-user",new LocalStrategy(function verify(username, password, cb) {
     User.findOne("username",username).then(result=>{
-
         if(result!=0 && result!=null){
             console.log(result[0].user_Id);
             const user = {

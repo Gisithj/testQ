@@ -48,7 +48,7 @@ Queue.create = (queue) => {
   Queue.findOne = (field,userValue) =>{
 
     return new Promise((resolve,reject)=>{
-      db.query(`SELECT queue.qName, queue.qType, queue.maxToken,queue.tokenRemain,queue.qStatus 
+      db.query(`SELECT queue.q_id,queue.qName, queue.qType, queue.maxToken,queue.tokenRemain,queue.qStatus 
       FROM queue 
       INNER JOIN token ON token.q_id = queue.q_id
       where token.${field} = ?; `,[userValue],(err,res)=>{
@@ -77,7 +77,7 @@ Queue.create = (queue) => {
         db.query(`SELECT distinct  queue.qName, queue.qType, queue.tokenRemain,queue.qStatus 
         FROM queue 
         INNER JOIN token ON token.q_id = queue.q_id
-        where token.userr_id != "13" and token.q_id != (Select q_id from token where userr_id = "13"); `,[userValue],(err,res)=>{
+        where token.userr_id != "14" and token.q_id not in (Select q_id from token where userr_id = "14"); `,[userValue],(err,res)=>{
         if(err){          
             console.log("error: ", err);
             reject(err);

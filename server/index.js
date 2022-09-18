@@ -63,6 +63,8 @@ app.use("/businessDashboard",businessDashboard)
 app.use("/businessDashboard/profile",businessDashboard)
 app.use("/sign-out",logout)
 
+app.use("/userDashboard/tokenDelete",userDashboard);
+
 
 
 app.listen(3000,function(){
