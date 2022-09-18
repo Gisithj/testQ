@@ -31,7 +31,8 @@ ul li{
     width: 250px;
     border-radius: 8px;
 
-}
+} 
+
 .navbar{
     display: flex;
     flex-direction: column;
@@ -284,27 +285,31 @@ tbody tr:hover{
      display: flex;
      gap: 30px;
      align-items: center;
- 
+     box-shadow: 2px 2px #9c9c9c;
+     border-radius: 0.5rem;
+     margin: 2px;
+    
    }
  
-   .profiled{
+   /* .profiled{
      float: left;
      width: 70%;
  
-   }
-   .plist{
+   } */
+.plist{
      display: flex;
      flex-direction: column;
  
    }
    .list{
-     margin-bottom: 5px;
+     /* margin-bottom: 5px; */
      padding: 12px;
      width: 130px;
      display: flex;
      justify-content: flex-start;
      flex-wrap: nowrap;
      flex-direction: column-reverse;
+    justify-content: center;
      
  
    }
@@ -317,14 +322,20 @@ tbody tr:hover{
    }
  
    .edtbtn{
-     width: 80px;
-     height: 25px;
+     width: 100px;
+     height: 35px;
      background-color: white;
      color: #3366ff;
      border: 2px solid #3366ff;
      border-radius: 5px;
-     margin-left: 10px;
+     cursor: pointer;
  }
+
+ .edtbtn:hover{
+    background-color: #3366ff;
+    color:white;
+ }
+
  .btn-container{
      display: flex;
      width: 100px;
@@ -351,6 +362,11 @@ tbody tr:hover{
     flex-direction: column;
     gap: 10px;
     
+}
+
+.frm-cont{
+    display: flex;
+    justify-content: center;
 }
 
 .button-create{

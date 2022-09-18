@@ -109,3 +109,18 @@ input:not(:placeholder-shown)+label{
         width: 216px;
     }
  }
+
+ @media screen and (max-width: 500px) {
+
+    div.side-bar{
+        display: none;
+    }
+    
+    /* .short-fields{
+        flex-direction: column;
+        gap: 0;
+    }
+    .short{
+        width: 216px;
+    } */
+ }
