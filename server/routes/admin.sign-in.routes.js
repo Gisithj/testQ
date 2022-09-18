@@ -1,0 +1,27 @@
+const express = require("express");
+const router = express.Router();
+const passport = require("../controllers/passport");
+const auth = require("./auth.routes");
+
+
+router.route("/")
+    .get(function(req,res){
+      res.redirect("/adminDashboard");
+      
+    })
+      
+    //   auth.isLoggedIn(req,res,function(){
+    //     res.redirect("/adminDashboard");
+    //     // res.redirect('/~' + req.user.username)
+    //   });
+    // })
+    
+    
+    .post(passport.authenticate('local-user', { failureRedirect: '/admin-sign-in', failureMessage: true }),
+    function(req, res) {
+      // res.redirect('/~' + req.body.username);
+      res.redirect("/adminDashboard");
+    });
+
+
+module.exports = router;
