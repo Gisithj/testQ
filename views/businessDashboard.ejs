@@ -46,7 +46,7 @@
             <p class="text-username"><%username%></p>
           </div>
           <div class="top-bar-left">
-            <h4>My Business</h4>
+            <h3>My Business</h3>
           </div>
         </div>
         
@@ -73,12 +73,15 @@
                 </thead>
                 <tbody>
                   <%if(queueData==null){%>
+                    
                     <tr class="row">
                      
                         <td><p>No active business queues</p></td>
-                </tr>
+                    </tr>
+                
                   <%}else{%>
                   <% for(var i=0; i<queueData.length; i++) {%>
+                    
 
                     <tr class="row">
                       <td>
@@ -111,19 +114,17 @@
               </table>
               
           </div>
-          
+            <div class="btnflex">
+                
+              <div>
+                  <button class="button-open" type="submit"><a href="/businessDashboard/OpenQueue">Open</a></button>
+              </div>
+              <div>
+                <button class="button-create1" type="submit"><a href="/businessDashboard/createQueue">Create</a></button>
+              </div>
+            </div>
 
-        </div>
-        <div>
-          <button class="button-create" type="submit"><a href="/businessDashboard/createQueue">Create</a></button>
-        </div>
-
-        <div>
-          <button class="button-open" type="submit"><a href="/businessDashboard/OpenQueue">Open</a></button>
-        </div>
-    
-    
-
+            </div>
           </div>
         </div>
         
