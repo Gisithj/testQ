@@ -116,4 +116,13 @@ router.route("/sign-out")
         })
         // res.render(path.resolve("views/userDashboard"))
     })
+
+    router.route("/findwindow")
+    .get(function(req,res){
+        console.log(req.user);
+        auth.isLoggedIn(req,res,function(){
+            res.render("user.findwindow.ejs")
+        })
+        // res.render(path.resolve("views/userDashboard"))
+    })
 module.exports = router;
