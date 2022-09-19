@@ -74,14 +74,12 @@
                     <%if(queueData==null){%>
                       <tr class="row">
                         <td>
-                          <p>No active business queues</p>
+                          <p>No active Tokens</p>
                         </td>
                       </tr>
                       <%}else{%>
                         <% for(var i=0; i<queueData.length; i++) {%>
-                          <form id ="rowForm"action="/userDashboard/tokenDelete" method="post">
-                            <input type="hidden" name="q_id"value="<%=queueData[i].q_Id%>">
-                          </form>
+                          
                             <tr class="row">
                               <td class="none">
                                 <p>
@@ -114,14 +112,28 @@
                                 </p>
                               </td>
                               <td class="align-middle">
-                                <div class="middle">
-                                        <button type="submit" class="dlt"> Delete </button>
-                                    </div>
+                                <div class ="middle">  
+                                   <form id ="<%=queueData[i].q_Id%>" action="/businessDashboard/queueDelete" method="post">
+                              
+                                <button id="btn-queue-delete"class="dlt" onclick="submit<%=queueData[i].q_Id%>()"> Delete<input type="hidden" name="q_id"value="<%=queueData[i].q_Id%>"  > </button> 
+                              </div>
                                 
-                                  </td>
-                                </div>
-                              </td>
+                             </form></td>
                             </tr>
+            
+                            <script LANGUAGE="JavaScript">
+            
+              
+                
+                              function submit<%=queueData[i].q_Id%>() {        
+                                console.log("called the js");
+                              $("#<%=queueData[i].q_Id%>").submit();
+                              }
+                         
+                        </script>
+                              
+
+                            
                             <% }}%>
                   </tbody>
                 
