@@ -44,7 +44,7 @@ router.route("/findQueues")
 .get(function(req,res){
     auth.isLoggedIn(req,res,function(){
         var keyword ="";
-        queue.findAllLike(keyword,req,res).then(result=>{
+        queue.findAll(keyword,req,res).then(result=>{
             if(result!=0 && result!=null){
                 res.render("user.findqueues.ejs",{
                     username: req.user.username,

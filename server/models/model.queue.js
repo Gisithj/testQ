@@ -50,7 +50,10 @@ Queue.create = (queue,req,res) => {
 
     return new Promise((resolve,reject)=>{
       // db.query(`SELECT * FROM  queue where ${field} = ?; `,[userValue],(err,res)=>{
-        db.query(`SELECT * FROM  queue ; `,[userValue],(err,res)=>{
+        db.query(`SELECT queue.qName, queue.qType, queue.tokenRemain,queue.qStatus 
+          FROM queue 
+          INNER JOIN token ON token.q_id = queue.q_id
+          where token.userr_id = ?;`,[userValue],(err,res)=>{
         if(err){          
             console.log("error: ", err);
             reject(err);
@@ -73,7 +76,7 @@ Queue.create = (queue,req,res) => {
       FROM queue 
       INNER JOIN current_token ON current_token.q_id = queue.q_id
       INNER JOIN token ON token.q_id = queue.q_id
-      where token.userr_id = ? and token.q_id = ?; `,[q_Id,userr_Id],(err,res)=>{
+      where token.userr_id = ? and token.q_id = ?;`,[q_Id,userr_Id],(err,res)=>{
         if(err){          
             console.log("error: ", err);
             reject(err);
@@ -96,10 +99,9 @@ Queue.create = (queue,req,res) => {
     //   FROM queue 
     //   INNER JOIN token ON token.q_id = queue.q_id
     //   where token.${field} != ?; `,[userValue],(err,res)=>{
-        db.query(`SELECT distinct  queue.qName, queue.qType, queue.tokenRemain,queue.qStatus 
+        db.query(`SELECT distinct  queue.qName, queue.qType, queue.maxToken, queue.tokenRemain, current_token.currentToken, queue.qStatus 
         FROM queue 
-        INNER JOIN token ON token.q_id = queue.q_id
-        where token.userr_id != "14" and token.q_id not in (Select q_id from token where userr_id = "14"); `,[userValue],(err,res)=>{
+        INNER JOIN current_token ON current_token.q_id = queue.q_id; `,[userValue],(err,res)=>{
         if(err){          
             console.log("error: ", err);
             reject(err);
