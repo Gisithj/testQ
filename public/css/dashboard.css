@@ -346,7 +346,7 @@ tbody tr:hover{
 
  .btn-container{
      display: flex;
-     width: 562px;
+     width: 450spx;
      justify-content: right;
      
  }
@@ -366,6 +366,7 @@ tbody tr:hover{
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    padding-top: 5px;
 }
 
 .short-field2{
@@ -378,6 +379,8 @@ tbody tr:hover{
 .frm-cont{
     display: flex;
     justify-content: center;
+    width: 100%;
+    
 }
 
 .button-create{
@@ -397,10 +400,6 @@ tbody tr:hover{
 
 
 
-
-
-
-
 .header h1 {
   font-weight:400;
   margin:0;
@@ -417,9 +416,8 @@ margin: 0 auto;
   margin-top:20px;
   position:relative;
   background: whitesmoke;
-  color: base;
   width: 18.85%;
-  margin-left:40px;
+  /* margin-left:40px; */
   /* margin-right:40px; */
   min-width:250px;
   height: 260px;
@@ -459,20 +457,25 @@ color: rgb(57, 134, 234);
 }
 
 .adt{
-    width: 100%;
-    height: 50px;
-    background-color:white;
-    color:#3366ff;
+    width: 100px;
+    height: 35px;
+    background-color: white;
+    color: #3366ff;
     border: 2px solid #3366ff;
     border-radius: 5px;
-    margin-right: 10px;
-    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 30px;
+}
 
+.adt:hover{
+    background-color: #3366ff;
+    color: white;
 }
 
 .card{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     gap: 55px;
 
 }
@@ -502,4 +505,48 @@ color: rgb(57, 134, 234);
     margin-right: 10px;
 
 }
+.form-edit{
 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    height: 2em;
+    margin-bottom: 2em;
+}
+
+.form-edit input{
+
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    padding: 0.8em;
+    border: 0.5px #dadce0 solid;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-edit input::placeholder{
+    opacity: 0;
+    color: #5f6368;
+}
+.form-edit label{
+    position: absolute;
+    top: 0.8em;
+    left: 0.9em;
+    cursor: text;
+    pointer-events:none;
+    transition: all 0.2s ease-in-out;
+    color: #5f6368;
+    font-size: 0.8em;
+    
+}
+
+.edittable-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%; 
+    
+}

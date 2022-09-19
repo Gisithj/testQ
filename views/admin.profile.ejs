@@ -1,7 +1,7 @@
 <%- include("./partials/header.ejs")%>
     <link rel="stylesheet" href="/public/css/dashboard.css">
     <title>Document</title>
-
+</head>
     <body>
 
         <div class="main-container">
@@ -13,7 +13,7 @@
                   <ul class="navbar-nav">
                     <li class="nav-item-logo">
                       
-                        <img src="logo-whitebg.png" width="185"  >
+                        <img src="/public/images/logo-whitebg.png" width="185"  >
                       
                     </li>
                     <br> 
@@ -45,142 +45,59 @@
                     <button class="button-signOut" type="submit"><a href="/sign-out">Log out</a></button>
                     <p class="text-username">Admin</p>
                 </div>
-                <h1>All Users</h1>
-                <br>
                           <div class="table-area">
-                   
-                        <div class="table-container">
-                            <div class="table-card-header">
-                                <h3 class="">User Details</h3>
-                              
+   
+                        <div class="table_cont">
+                            <div class="plist">
+
+                              <div class="profileh">
+                                <div class="list">First Name</div>
+                                <div class="list1">Fname</div>
+                              </div>
+   
+                              <div class="profileh">
+                                <div class="list">Last Name</div>
+                                <div class="list1">Lname</div>
+                              </div>
+   
+                              <div class="profileh">
+                                <div class="list">E-mail</div>
+                                <div class="list1">E-mail</div>
+                              </div>
+   
+                              <div class="profileh">
+                                <div class="list">NIC</div>
+                                <div class="list1">NIC</div>
+                              </div>
+   
+                              <div class="profileh">
+                                <div class="list">Address</div>
+                                <div class="list1">Address</div>
+                              </div>
+   
+                              <div class="profileh">
+                                <div class="list">Zipcode</div>
+                                 <div class="list1">Zipcode</div>
+                              </div>
+   
+                              <div class="profileh">
+                                <div class="list">Telephone No:</div>
+                                <div class="list1">Telephone No:</div>
+                              </div>
+   
+                              <div class="profileh">
+                                <div class="list">Username</div>
+                                <div class="list1">Username</div>
+                              </div>
+
+                              <div class="btn-container">
+                                <a href="/userDashboard/profile/edit"><button class="edtbtn">Edit</button></a>
+                              </div>
+   
                             </div>
-                            <div class="card-body px-0 pb-2">
-                                <table class="table">
-                                  <thead class="table-header">
-                                    <tr>
-                                      <th class="table-header-column" style="width:10%">User ID</th>
-                                      <th class="table-header-column" style="text-align: center;">Name</th>
-                                      <th class="table-header-column" style="text-align: center;">Enrolled Queues</th>
-                                      <th class="table-header-column" style="text-align: center;">Status</th>
-                                      <!-- <th class="table-header-column" style="text-align: center;">Completion</th> -->
-                                      <th></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    
-                                    <tr class="row">
-                                          <td>
-                                            <div class="d-flex px-2">
-                                              Malidu
-                                            </div>
-                                          </td>
-                                          <td class="comp">
-                                            <p>$2,500</p>
-                                          </td>
-                                
-                                        <td class="comp">
-                                          <span>gas</span>
-                                        </td>
-                                          <td class="comp">
-                                            <span >Active</span>
-                                          </td>
-                                          <!-- <td class="comp">
-                                            <p>60%</p>
-                                          </td> -->
-                                        
-                                      <td class="align-middle">
-                                        <!-- <button class="btn btn-link text-secondary mb-0">
-                                          <i class="fa fa-ellipsis-v text-xs"></i> -->
-                                       <button class="dlt"> Delete User </button>
-                                        
-                                      </td>
-                                    </tr>
-                              
-
-
-                                    <tr class="row">
-                                        <td>
-                                          <div class="d-flex px-2">
-                                            disith
-                                          </div>
-                                        </td>
-                                        <td class="comp">
-                                          <p>$2,500</p>
-                                        </td>
-                                        <td class="comp">
-                                          <span>fuel</span>
-                                        </td>
-                                        <td class="comp">
-                                          <span>Active</span>
-                                        </td>
-                                        <!-- <td class="comp"> 
-                                          <p>60%</p>
-                                        </td>-->
-                                        <td class="align-middle">
-                                          
-                                          <!-- <button class="btn btn-link text-secondary mb-0">
-                                            <i class="fa fa-ellipsis-v text-xs"></i> 
-                                          </button> -->
-                                          <button class="dlt"> Delete User </button>
-                                          
-                                        </td>
-                                      </tr>
-                                      <tr class="row">
-                                        <td>
-                                          <div class="d-flex px-2">
-                                            malith
-                                          </div>
-                                        </td>
-                                        <td class="comp">
-                                          <p>$2,500</p>
-                                        </td>
-                                        <td class="comp">
-                                          <span>suger</span>
-                                        </td>
-                                        <td class="comp">
-                                          <span>Active</span>
-                                        </td>
-                                        <!-- <td class="comp"> 
-                                          <p>60%</p>
-                                        </td>-->
-                                        <td class="align-middle">
-                                          <!-- <button class="btn btn-link text-secondary mb-0">
-                                            <i class="fa fa-ellipsis-v text-xs"></i>
-                                          </button> -->
-                                          <button class="dlt"> Delete User </button>
-                                        </td>
-                                      </tr>
-                                      <tr class="row">
-                                        
-                                        <td>
-                                          <div class="d-flex px-2">
-                                            ashi
-                                          </div>
-                                        </td>
-                                        <td class="comp">
-                                          <p>gisith</p>
-                                        </td>
-                                        <td class="comp">
-                                          <span>Milk</span>
-                                        </td>
-                                        <td class="comp">
-                                          <span>Active</span>
-                                        </td>
-                                        <!-- <td class="comp"> 
-                                          <p>60%</p>
-                                        </td>-->
-                                        <td class="align-middle">
-                                          <!-- <button class="btn btn-link text-secondary mb-0">
-                                            <i class="fa fa-ellipsis-v text-xs"></i>
-                                          </button> -->
-                                          <button class="dlt"> Delete User </button>
-
-                                        </td>
-                                      </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
+                            
+                          </div>
+              
                       </div>
               
             </div>

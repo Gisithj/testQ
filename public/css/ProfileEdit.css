@@ -1,0 +1,127 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+}
+.img-container img{
+    height: 14em;
+    object-fit: contain;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 550px;
+    max-width: 820px;
+    border: 0.5px #dadce0 solid;
+    border-radius: 8px;
+    padding: 2em 1% 0 1%;
+    background-color: white;
+    border-radius: 8px;
+}
+a{
+    text-decoration: none;
+    color: #3366ff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+.errorToast{
+    width: 180px;
+    height: 15px;
+    padding: 0.8em;
+    display: none;
+    border: 2px red solid;
+    margin-bottom: 1em;
+}
+#signup { 
+    display: none;
+ }
+
+ 
+.tab-group {
+    display: flex;
+    flex-direction: row;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.tab-group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.tab-group li {
+	display: block;
+	text-decoration: none;
+	padding: 10px;
+	background: #ffffff;
+	color: #888;
+	font-size: 18px;
+	text-align: center;
+    cursor: pointer;
+    margin-bottom: 2px;
+    border-radius: 4px;
+	border-top: 3px solid transparent;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.tab-group>li:hover {
+	background: #dedfdf;
+	color: #666;
+}
+.tab-group .active  {
+	background: #fff;
+	color: #444;
+	border-bottom: 2px solid #3366ff;
+}
+.form-field{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 400px !important;
+    height: 2em;
+    min-width: 0;
+    margin-bottom: 2em;
+}
+.form-field-business-profile{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 200px !important;
+    height: 2em;
+    min-width: 0;
+    margin-bottom: 2em;
+}
+
+.form-field-business-profile button{
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%); 
+    background-color: rgba(255, 255, 255, 0);
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    height: 2em;
+}
+.field-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.text-box-container{
+    
+}
