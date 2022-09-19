@@ -1,0 +1,149 @@
+<%- include("../views/partials/header.ejs") %>
+<link rel="stylesheet" href="/public/css/dashboard.css">
+<title>Dashboard</title>
+</head>
+
+<body>
+
+<div class="main-container">
+
+  <div class="side-bar ">
+
+    <div class="navbar " id="sidenav-collapse-main">
+
+      <ul class="navbar-nav">
+        <li class="nav-item-logo">
+          <a class="nav-link " href="/userDashboard">
+            <img src="../public/images/logo-whitebg.png" width="185">
+
+          </a>
+
+
+        </li>
+        <br>
+        <li class="nav-item active-nav-item">
+          <a class="nav-link " href="/businessDashboard/profile">
+            
+            <span class="">Back</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="secondary-container">
+    <div class="top-bar">
+    
+    <div class="top-bar-right">
+      <button class="button-signOut" type="submit"><a href="/sign-out">Log out</a></button>
+      <p class="text-username">gg</p>
+    </div>
+    <div class="top-bar-left">
+      <h3>Queue Details</h3>
+    </div>
+
+  
+</div>
+    <!-- <div>
+      Search bar
+      <form action="/userDashboard/findQueues" method="post" class="search-bar">
+        <div class="search-bar-container">
+          <input type="text" placeholder=" search queues" name="search">
+          <button class="btn-search"><i class=" fas fa-xl fa-magnifying-glass icon"></i> </button>
+        </div>
+
+      </form>
+    </div> -->
+
+<!-- <div class="table-area">
+
+  <div class="table-container">
+    <div class="table-card-header">
+      <h3 class="">Queue Details</h3>
+
+    </div>
+    <div class="card-body px-0 pb-2">
+      <table class="table">
+        <thead class="table-header">
+          <tr>
+            <th class="table-header-column" style="text-align: center;"> Queue Name</th>
+            <th class="table-header-column" style="text-align: center;"> Ongoing Token Number</th>
+            <th class="table-header-column" style="text-align: center;"> Max Token</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+           
+          <td class="comp">
+            <p>ABC</p>
+          </td>
+          <td class="comp">
+            <p>22</p>
+          </td>
+          <td class="comp">
+            <p>50</p>
+          </td>
+          <td class="align-middle">
+                                      
+            <div class ="middle">
+              <button class="bedit"> Admit </button>
+            </div>
+        
+          </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="header-container"> -->
+  <div class="table-card-header">
+    <h3 class="">Queue Details</h3>
+  </div>
+  <div class="card">
+    <div class="block blue">
+      <div class="heading">
+        Queue Name
+      </div>
+      <div class="num">ABC</div>
+    </div>
+    
+    <div class="block green">
+      <div class="heading">
+        On Going Token
+      </div>
+      <div class="num">22</div>
+    </div>
+    
+    <div class="block maroon">
+      <div class="heading">
+        Max Token
+      </div>
+      <div class="num">100</div>
+    </div>
+  </div> 
+  
+  <!-- </div>  -->
+  <div class ="middle"></div>
+  <button class="adt"> Admit </button>
+</div>
+
+
+
+
+  </div>
+
+</div>
+
+
+<script src="../public/js/userDashboard.js"></script>
+
+
+
+
+
+
+</body>
+
+</html>

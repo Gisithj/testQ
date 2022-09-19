@@ -12,7 +12,7 @@ $(document).ready(function(){
     })
 
     $("tbody tr").click(function() {
-        window.location = '/';
+        window.location = '/userDashboard/findwindow';
       });
 
       $("#Qtype").click(function() {
