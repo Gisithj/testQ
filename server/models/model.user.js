@@ -49,6 +49,31 @@ User.create = (user) => {
     })
     
   };
+
+
+  User.userUpdate = (user) =>{
+    console.log(user.zipCode,"herer");
+    return new Promise((resolve,reject)=>{
+      db.query(`UPDATE test.user SET email = ?, address = ?, zipCode = ?, telNo = ?, password =  ? WHERE (user_Id = ?);`
+      ,[user.email,user.address,user.zipCode,user.telNo,user.password,user.user_id],(err,res)=>{
+        if(err){          
+            console.log("error: ", err);
+            reject(err);
+            
+        }        
+        if(res!=null || res!='undefined'){        
+            console.log(`found users after updating `, res);
+            resolve(true);
+        }
+            
+        
+    });
+    })
+    
+  };
+
+  
+
   module.exports = User;
 
 

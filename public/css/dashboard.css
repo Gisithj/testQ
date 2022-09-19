@@ -12,6 +12,9 @@ ul li{
     height: 100%;
     padding: 1%;
     gap: 20px;
+     background-image: url("/public/images/bg300_20.png");
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 .secondary-container{
@@ -56,6 +59,7 @@ ul li{
 }
 .nav-item:hover{
     background-color: whitesmoke;
+  
 }
 .active-nav-item{
     background-color: white;
@@ -64,6 +68,7 @@ ul li{
 .active-nav-item:hover{
     /* background-color: #3366ff; */
     background-color: white;
+    
 }
 .nav-link{
     height: 40px;
@@ -73,6 +78,9 @@ ul li{
     align-items: center;  
     /* color: #3366ff;   */
     color: white;
+}
+.nav-link:hover{
+    color: #3366ff;
 }
 .nav-item-logo{
     object-fit: contain;
@@ -283,11 +291,11 @@ tbody tr:hover{
 .profileh{
     float: left;
      display: flex;
-     gap: 30px;
+     gap: 10px;
      align-items: center;
-     box-shadow: 2px 2px #9c9c9c;
+     box-shadow: 2px 2px 3px #9c9c9c2e;
      border-radius: 0.5rem;
-     margin: 2px;
+     margin-bottom: 20px;
     
    }
  
@@ -315,7 +323,7 @@ tbody tr:hover{
    }
    .list1{
      /*margin-bottom: 10px;*/
-     width: 200px;
+     width: 380px;
      padding: 14px;
      display: flex;
      justify-content: flex-start;
@@ -338,7 +346,9 @@ tbody tr:hover{
 
  .btn-container{
      display: flex;
-     width: 100px;
+     width: 562px;
+     justify-content: right;
+     
  }
  
  .table_cont{
@@ -348,6 +358,7 @@ tbody tr:hover{
      height: 100%;
      width: 100%;
      margin-top: 20px;
+     margin-bottom: 20px;
  }
 
  .short-field1{
@@ -378,6 +389,10 @@ tbody tr:hover{
     border-radius: 8px;
     margin-right: 10px;
 
+}
+
+.nav-link:hover{
+    color: #3366ff;
 }
 
 
@@ -461,3 +476,30 @@ color: rgb(57, 134, 234);
     gap: 55px;
 
 }
+
+.btnflex{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.button-create1{
+    height:100%; 
+    width: 100px;
+    background-color: #3366ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+.button-open{
+    height:100%; 
+    width: 100px;
+    background-color: #3366ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+
+}
+

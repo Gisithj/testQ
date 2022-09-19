@@ -52,51 +52,37 @@
             </div>
 
               <div class="frm-cont">
-                     <form id="createQueue"action="/" method="post">
+                     <form id="createQueue"action="/userDashboard/profile/edit" method="post">
                         <div class="short-field1">
                             
-                            <div class="form-field ">
-                                <input type="text" name="fName" placeholder="none" required>
-                                      <label for="lName">First Name</label>
-                            </div>
-
-                            <div class="form-field ">
-                                <input type="text" name="lName" placeholder="none" required>
-                                    <label for="lname">Last Name</label>
-                            </div>
-                            <div class="form-field ">
-                                <input type="email" name="email" placeholder="none" required>
-                                    <label for="email">E-mail</label>
-                            </div>
-                            <div class="form-field ">
-                                <input type="text" name="NIC" placeholder="none" required>
-                                    <label for="nic">NIC</label>
-                            </div>
-                            <div class="form-field ">
-                                <input type="text" name="Address" placeholder="none" required>
-                                    <label for="address">Address</label>
-                            </div>
-                            <div class="form-field ">
-                                <input type="text" name="Zipcode" placeholder="none" required>
-                                    <label for="Zipcode">Zipcode</label>
-                            </div>
-                            <div class="form-field ">
-                                <input type="text" name="Telephone No" placeholder="none" required>
-                                    <label for="Telephone No">Telephone No:</label>
-                            </div>
-                            <div class="form-field ">
-                                <input type="text" name="Username" placeholder="none" required>
-                                    <label for="Username">Username</label>
-                            </div>
-                            <div class="form-field ">
-                                <input type="text" name="Password" placeholder="none" required>
-                                    <label for="Password">Password</label>
-                            </div>
+                        
+                        <div class="form-field ">
+                            <input type="text" name="email" placeholder="none" value="<%=queueData[0].email%>" required>
+                                <label for="email">E-mail</label>
+                    
+                        <div class="form-field ">
+                            <input type="text" name="address" placeholder="none" value="<%=queueData[0].address%>" required>
+                                <label for="address">Address</label>
+                        </div>
+                        <div class="form-field ">
+                            <input type="text" name="zipcode" placeholder="none" value="<%=queueData[0].zipCode%>" required>
+                                <label for="zipcode">Zipcode</label>
+                        </div>
+                        <div class="form-field ">
+                            <input type="text" name="telNo" placeholder="none" value="<%=queueData[0].telNo%>" required>
+                                <label for="telNo">Telephone No:</label>
+                        </div>
+               
+                        <div class="form-field ">
+                            <input type="text" name="password" placeholder="none" required>
+                                <label for="password">Password</label>
                         </div>
         
     
                         <div class="form-field button">
+                          <form action="/userDashboard/profile/edit" method="post">
                               <button name="signUp"type="submit">Submit</button>
+                            </form>
                         </div>
                     </form>
               </div>

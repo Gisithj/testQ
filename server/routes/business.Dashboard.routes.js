@@ -58,7 +58,7 @@ router.route("/sign-out")
 
     router.route("/profile/edit")
     .get(function(req,res){
-        console.log(req.user);
+        console.log(req.user);        
         auth.isLoggedIn(req,res,function(){
             res.render("business.profile.edit.ejs")
         })
