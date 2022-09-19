@@ -42,36 +42,25 @@
                 
                 <div class="top-bar-right">
                   <button class="button-signOut" type="submit"><a href="/sign-out">Log out</a></button>
-                  <p class="text-username">gg</p>
+                  <p class="text-username"><%=username %></p>
                 </div>
                 <div class="top-bar-left">
-                  <h4>Somapala Pvt Ltd</h4>
+                  <h4><%=queueData[0].bName%></h4>
                 </div>
             
               
             </div>
 
               <div class="frm-cont">
-                     <form id="createQueue"action="/" method="post">
+                     <form id="createQueue"action="/businessDashboard/profile/edit" method="post">
                         <div class="short-field1">
                             
-                            <div class="form-field ">
-                                <input type="text" name="fName" placeholder="none" value="<%=queueData[0].fName%>" required>
-                                      <label for="fName">First Name</label>
-                            </div>
-
-                            <div class="form-field ">
-                                <input type="text" name="lName" placeholder="none" value="<%=queueData[0].lName%>" required>
-                                    <label for="lName">Last Name</label>
-                            </div>
+                           
                             <div class="form-field ">
                                 <input type="text" name="email" placeholder="none" value="<%=queueData[0].email%>" required>
                                     <label for="email">E-mail</label>
                             </div>
-                            <div class="form-field ">
-                                <input type="text" name="nic" placeholder="none" value="<%=queueData[0].nicNo%>" required>
-                                    <label for="nic">NIC</label>
-                            </div>
+                          
                             <div class="form-field ">
                                 <input type="text" name="address" placeholder="none" value="<%=queueData[0].address%>" required>
                                     <label for="address">Address</label>
@@ -84,26 +73,28 @@
                                 <input type="text" name="telNo" placeholder="none" value="<%=queueData[0].telNo%>" required>
                                     <label for="telNo">Telephone No:</label>
                             </div>
+                            
                             <div class="form-field ">
-                                <input type="text" name="username" placeholder="none" value="<%=queueData[0].username%>" required>
-                                    <label for="username">Username</label>
-                            </div>
-                            <div class="form-field ">
-                                <input type="text" name="password" placeholder="none" value="<%=queueData[0].password%>" required>
+                                <input type="password" name="password" placeholder="none" value="<%=queueData[0].password%>" required>
                                     <label for="password">Password</label>
                             </div>
                         </div>
         
     
                         <div class="form-field button">
-                              <button name="signUp"type="submit">Sign Up</button>
+                              <form action="/businessDashboard/profile/edit" method="post">
+                                <button name="signUp"type="submit">Update</button>
+                              </form>
+                                
+
+                               
                         </div>
                     </form>
               </div>
                 
 
               </div>
-        <script src="userDashboard.js"></script>
+
 
         
 

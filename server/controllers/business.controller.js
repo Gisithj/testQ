@@ -130,7 +130,49 @@ async function create(req, res) {
 
 }
 
-module.exports = { create };
+
+function findOne(field, userValue,req,res) {
+  return new Promise((resolve,reject)=>{
+    console.log("In the business one", field,userValue);
+    Business.findOne(field, userValue).then(result=>{
+          if(result!=0 && result!=null){
+            isExist = true;
+              resolve(result);
+          }else{
+              resolve(false);
+          }
+      }).catch(err=>{
+          console.log(err);
+            // res.status(500).send({
+            //   message:
+            //     err.message || "Some error occurred while quering findOne email.",
+            // });
+           reject(false);
+      })
+  })
+  
+}
+
+function businessUpdate(user,req,res) {
+
+  return new Promise((resolve,reject)=>{
+      Business.businessUpdate(user).then(result=>{
+          if(result){
+              resolve(result);
+          }
+      }).catch(err=>{
+          console.log(err);
+            res.status(500).send({
+              message:
+                err.message || "Some error occurred while quering findOne email.",
+            });
+           reject(false);
+      })
+  })
+  
+}
+
+module.exports = { create ,findOne, businessUpdate};
 
 
 // isError = true;

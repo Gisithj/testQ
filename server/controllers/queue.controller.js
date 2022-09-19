@@ -73,16 +73,18 @@ function findAll(field, userValue,req,res) {
 
 async function create(req, res) {
 
+  console.log("create called");
   const queue = {
+
+    b_id : req.user.id,
     qName : req.body.qName,
     qType : req.body.qType,
     maxToken : req.body.maxToken,
-    tokenRemain : req.body.tokenRemain,
     qStatus : req.body.qStatus,
 } 
 
-  await Queue.create(queue).then(result=>{
-     res.render("businessDashboard");
+  await Queue.create(queue,req,res).then(result=>{
+     res.redirect("/businessDashboard");
     
   }).catch(err =>{
       res.status(500).send({

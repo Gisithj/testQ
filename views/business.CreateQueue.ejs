@@ -56,7 +56,7 @@
         <div class="top-bar">
           <div class="top-bar-right">
             <button class="button-signOut" type="submit"><a href="/sign-out">Log out</a></button>
-            <p class="text-username">gg</p>
+            <p class="text-username"><%=username %></p>
           </div>
           <div class="top-bar-left">
             <h4>My Business</h4>
@@ -69,14 +69,14 @@
     
     <script src="../public/js/businessDashboard.js"></script>
 
-    <form id="createQueue"action="/" method="post" name="queue">
+    <form id="createQueue"action="/businessDashboard/createQueue" method="post" name="queue">
         <div class="short-field1">
             <div class="form-field ">
                 <input type="text" name="qName" placeholder="none" required >
                 <label for="qName">Queue Name</label>
             </div>
             <div class="form-field ">
-              <select name="Qtype" id="Qtype" onchange="checkLimit()">
+              <select name="qType" onchange="checkLimit()" id="Qtype">
                 <option value='Limited'>Limited</option>
                 <option value="Unlimited">Unlimited</option>
                
@@ -87,6 +87,15 @@
             <div class="form-field ">
             <input type="text" name="maxToken" id="maxToken" placeholder="none" required>
             <label for="maxToken">Max Token</label>
+            </div>
+
+            <div class="form-field ">
+              <select name="qStatus">
+                <option value='distribution started'>Distribution Started</option>
+                <option value="distribution pending">Distribution pending</option>
+               
+              </select>
+                
             </div>
         </div>
         
