@@ -9,12 +9,16 @@ const Token = function(token){
 Token.delete = (userr_id,q_id) => {
 
     return new Promise((resolve,reject)=>{
-     db.query(`DELETE FROM token WHERE userr_id = ${userr_id} AND q_id = ${q_id};`, (err, res) => {
+     db.query(`DELETE from token WHERE userr_id = ${userr_id} AND q_id = ${q_id};`, (err, res) => {
        if (err) {
          reject(err)
          console.log("error: ", err);
        }
-       resolve(true);
+       if(res!=null || res!='undefined'){        
+        console.log(`found users after updating `, res);
+        resolve(true);
+    }
+     
        
      });
    })

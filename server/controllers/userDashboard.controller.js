@@ -1,7 +1,7 @@
 const Token = require("../models/model.token");
 const User = require("../models/model.user")
 
-Token.delete()
+
 
 function tokenDelete(userr_id,q_id,req,res) {
 
@@ -9,6 +9,8 @@ function tokenDelete(userr_id,q_id,req,res) {
         Token.delete(userr_id,q_id).then(result=>{
             if(result){
                 resolve(result);
+            }else{
+              resolve(false)
             }
         }).catch(err=>{
             console.log(err);

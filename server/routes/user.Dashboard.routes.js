@@ -220,30 +220,32 @@ router.route("/sign-out")
         })
     })
 
-    router.route("/tokenDelete")
-    .post( function(req, res, next){
-        auth.isLoggedIn(req,res,function(){
-            var q_id = req.body.userTokenDelete;
-            var user_id = req.user.id;
-            console.log("in the token delete",q_id,user_id);
-            userDashboard.tokenDelete(user_id,q_id,res,res).then(result=>{
-                if(result){
-                    res.render("userDashboard",{
-                        username: req.user.username,
-                        queueData:null
+    // router.route("/tokenDelete")
+    // .post( function(req, res, next){
+    //     auth.isLoggedIn(req,res,function(){
+    //         var q_id = req.body.userTokenDelete;
+    //         var user_id = req.user.id;
+    //         console.log("in the token delete",q_id,user_id);
+    //         userDashboard.tokenDelete(user_id,q_id,res,res).then(result=>{
+    //             if(result){
+    //                 res.render("userDashboard",{
+    //                     username: req.user.username,
+    //                     queueData:null
             
-                    })
-                }
-            }).catch(err=>{
-                console.log(err);
-                  res.status(500).send({
-                    message:
-                      err.message || "Some error occurred while quering findOne email.",
-                  });
-                 reject(false);
-            })
-        })
-    });
+    //                 })
+    //             }else{
+    //                 console.log("token did not deleted");
+    //             }
+    //         }).catch(err=>{
+    //             console.log(err);
+    //               res.status(500).send({
+    //                 message:
+    //                   err.message || "Some error occurred while quering findOne email.",
+    //               });
+    //              reject(false);
+    //         })
+    //     })
+    // });
 
 
 
