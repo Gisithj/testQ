@@ -83,10 +83,7 @@
                   <%}else{%>
                   <% for(var i=0; i<queueData.length; i++) {%>
                     
-                    <form id ="rowForm"action="/businessDashboard/queueDelete" method="post">
-                    <input type="hidden" name="q_id"value="<%=queueData[i].q_Id%>">
-
-                  </form>
+   
                     <tr class="row">
                       <td>
                         <p><%=queueData[i].qName%></p>
@@ -104,13 +101,32 @@
                         <p><%=queueData[i].queueStatus%></p>
                       </td>
                     
-                  <td class="align-middle">
+                  <!-- <td class="align-middle">
                       <div class ="middle">                      
                         <button id="btn-queue-delete"class="dlt"> Delete </button>
                       </div>
                     
-                  </td>
+                  </td> -->
+                  <td class="align-middle">
+                    <div class ="middle">  
+                       <form id ="<%=queueData[i].q_Id%>" action="/businessDashboard/queueDelete" method="post">
+                  
+                    <button id="btn-queue-delete"class="dlt" onclick="submit<%=queueData[i].q_Id%>()"> Delete<input type="hidden" name="q_id"value="<%=queueData[i].q_Id%>"  > </button> 
+                  </div>
+                    
+                 </form></td>
                 </tr>
+
+                <script LANGUAGE="JavaScript">
+
+  
+    
+                  function submit<%=queueData[i].q_Id%>() {        
+                    console.log("called the js");
+                  $("#<%=queueData[i].q_Id%>").submit();
+                  }
+             
+            </script>
 
                <% }}%>
 
