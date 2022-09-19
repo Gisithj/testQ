@@ -173,6 +173,40 @@ function findOne(field, userValue,req,res) {
   
 }
 
-module.exports = { create ,findOne};
+async function userUpdate(req,res) {
+  var password = "";
+  await bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
+   
+      password = hash;
+      console.log(password);
+    
+});
+
+var user ={
+  user_id:req.user.id,
+  email :req.body.email,
+  address:req.body.address,
+  zipCode:req.body.zipcode,
+  telNo: req.body.telNo,
+  password:password,
+}
+  return new Promise((resolve,reject)=>{
+      User.userUpdate(user).then(result=>{
+          if(result){
+              resolve(result);
+          }
+      }).catch(err=>{
+          console.log(err);
+            res.status(500).send({
+              message:
+                err.message || "Some error occurred while quering findOne email.",
+            });
+           reject(false);
+      })
+  })
+  
+}
+
+module.exports = { create ,findOne, userUpdate};
 
 

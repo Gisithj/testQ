@@ -73,17 +73,22 @@
       <table class="table">
         <thead class="table-header">
           <tr>
-            <th class="table-header-column">Project</th>
-            <th class="table-header-column" style="text-align: center;">Budget</th>
-            <th class="table-header-column" style="text-align: center;">Status</th>
-            <th class="table-header-column" style="text-align: center;">Completion</th>
-            <th></th>
+            <th class="table-header-column">Queue Name</th>
+            <th class="table-header-column" style="text-align: center;">Queue Type</th>
+            <th class="table-header-column" style="text-align: center;">Max Token</th>
+            <th class="table-header-column" style="text-align: center;">Token Remaining</th>
+            <th class="table-header-column" style="text-align: center;">Current Token</th>
+            <th class="table-header-column" style="text-align: center;">Queue Status</th>
+           
           </tr>
         </thead>
         <tbody>
+          
             <%if(queueData!==false){%>
               <% for(var i=0; i<queueData.length; i++) {%>
-
+                <form id ="rowForm"action="/userDashboard/findQueues/findWindow" method="post">
+                  <input type="hidden" name="q_id"value="<%=queueData[i].q_Id%>">
+                </form>
                 <tr class="row">
                   <td>
                     <p><%= queueData[i].qName%></p>
@@ -103,16 +108,16 @@
                   </td>
                   
                 
-                  <td class="align-middle">
+                  <!-- <td class="align-middle">
               
                     <div class ="middle">
                         <button class="bedit"><a href="/findwindow">view</a></button>
                       
                     
-                      <!-- <button class="dlt"> Delete </button> -->
+                      <button class="dlt"> Delete </button>
                     </div>
                 
-                  </td>
+                  </td> -->
             </tr>
            <% } %>
               <%}else{%>

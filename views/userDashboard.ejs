@@ -13,7 +13,7 @@
         <div class="navbar  w-auto  max-height-vh-100" id="sidenav-collapse-main">
           <ul class="navbar-nav">
             <li class="nav-item-logo">
-              <a class="nav-link " href="/userDashboard/myQueues">
+              <a class="nav-link " href="/userDashboard">
                 <img src="/public/images/logo-whitebg.png" width="185">
 
               </a>
@@ -63,68 +63,67 @@
                     <th class="table-header-column">Queue name</th>
                     <th class="table-header-column" style="text-align: center;">Queue Type</th>
                     <th class="table-header-column" style="text-align: center;">Max Token</th>
+                    <th class="table-header-column" style="text-align: center;">Your Token</th>
                     <th class="table-header-column" style="text-align: center;">Remaining Tokens</th>
-                    <th class="table-header-column" style="text-align: center;">Queue</th>
+                    <th class="table-header-column" style="text-align: center;">Queue Status</th>
                   </tr>
                 </thead>
-                <tbody>
-
-                  <%if(queueData==null){%>
-                    <tr class="row">
-
-                      <td>
-                        <p>No active business queues</p>
-                      </td>
-                    </tr>
-                    <%}else{%>
-
-                      <% for(var i=0; i<queueData.length; i++) {%>
-
-                        <tr class="row">
-                          <td>
-                            <p>
-                              <%= queueData[i].qName%>
-                            </p>
-                            </p>
-                          </td>
-                          <td class="comp">
-                            <p>
-                              <%= queueData[i].qType%>
-                            </p>
-                          </td>
-                          <td class="comp">
-                            <p>
-                              <%= queueData[i].maxToken%>
-                            </p>
-                          </td>
-                          <td class="comp">
-                            <p>
-                              <%= queueData[i].tokenRemain%>
-                            </p>
-                          </td>
-                          <td class="comp">
-                            <p>
-                              <%= queueData[i].qStatus%>
-                            </p>
-                          </td>
-
-                          <td class="align-middle">
-
-                            <div class="middle">
-
-                              <form action="/userDashboard/tokenDelete" method="post">
-                                <input type="submit" class="dlt" name="userTokenDelete" value="<%= queueData[i].q_id %>"> 
-                              </form>
-
-                            </div>
-
-                          </td>
-                        </tr>
-                        <% }}%>
-
-
-
-                </tbody>
+               
+                  <tbody>
+                    <%if(queueData==null){%>
+                      <tr class="row">
+                        <td>
+                          <p>No active business queues</p>
+                        </td>
+                      </tr>
+                      <%}else{%>
+                        <% for(var i=0; i<queueData.length; i++) {%>
+                          <form id ="rowForm"action="/userDashboard/tokenDelete" method="post">
+                            <input type="hidden" name="q_id"value="<%=queueData[i].q_Id%>">
+                          </form>
+                            <tr class="row">
+                              <td class="none">
+                                <p>
+                                  <%= queueData[i].qName%>
+                                </p>
+                              </td>
+                              <td>
+                                <p>
+                                  <%= queueData[i].qName%>
+                                </p>
+                              </td>
+                              <td class="comp">
+                                <p>
+                                  <%= queueData[i].qType%>
+                                </p>
+                              </td>
+                              <td class="comp">
+                                <p>
+                                  <%= queueData[i].maxToken%>
+                                </p>
+                              </td>
+                              <td class="comp">
+                                <p>
+                                  <%= queueData[i].tokenRemain%>
+                                </p>
+                              </td>
+                              <td class="comp">
+                                <p>
+                                  <%= queueData[i].qStatus%>
+                                </p>
+                              </td>
+                              <td class="align-middle">
+                                <div class="middle">
+                                        <button type="submit" class="dlt"> Delete </button>
+                                    </div>
+                                
+                                  </td>
+                                </div>
+                              </td>
+                            </tr>
+                            <% }}%>
+                  </tbody>
+                
               </table>
             </div>
 

@@ -114,18 +114,10 @@ router.route("/sign-out")
     .post(function(req,res){
         console.log("Ez bng");
         auth.isLoggedIn(req,res,function(){
-            var businessData ={
-                b_id:req.user.id,
-                email :req.body.email,
-                address:req.body.address,
-                zipCode:req.body.zipcode,
-                telNo: req.body.telNo,
-                password:req.body.password,
-            }
 
             auth.isLoggedIn(req,res,function(){
-                console.log(businessData,"data from form");
-                business.businessUpdate(businessData,req,res).then(result=>{
+                console.log("data from form");
+                business.businessUpdate(req,res).then(result=>{
                     if(result){
                         res.redirect("/businessDashboard/profile")
                     }else{
@@ -188,5 +180,28 @@ router.route("/sign-out")
             // res.render("index")
     })
 })
+
+router.route("/queueDelete")
+.post( function(req, res, next){
+    auth.isLoggedIn(req,res,function(){
+
+        var q_id = req.body.q_id
+
+        console.log("in the queue delete",q_id);
+        queue.queueDelete(q_id,res,res).then(result=>{
+            if(result){
+                res.redirect("/businessDashboard")
+            }else{
+                console.log("queue did not deleted");
+            }
+        }).catch(err=>{
+            console.log(err);
+              res.status(500).send({
+                message:
+                  err.message || "Some error occurred while quering findOne email.",
+              });
+        })
+    })
+});
 
 module.exports = router;

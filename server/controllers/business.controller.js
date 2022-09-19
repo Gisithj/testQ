@@ -153,10 +153,24 @@ function findOne(field, userValue,req,res) {
   
 }
 
-function businessUpdate(user,req,res) {
-
+async function businessUpdate(req,res) {
+  var password = "";
+  await bcrypt.hash(req.body.password, saltRounds).then(function(hash) {
+   
+      password = hash;
+    
+});
+  const userData = {
+    b_id:req.user.id,
+    email: req.body.email,
+    address: req.body.address,
+    zipCode: req.body.zipcode,
+    telNo: req.body.telNo,
+    password:password,
+  };
+  console.log(userData);
   return new Promise((resolve,reject)=>{
-      Business.businessUpdate(user).then(result=>{
+      Business.businessUpdate(userData).then(result=>{
           if(result){
               resolve(result);
           }
