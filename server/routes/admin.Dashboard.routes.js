@@ -115,7 +115,9 @@ router.route("/sign-out")
     .get(function(req,res){
         console.log(req.user);
         auth.isLoggedIn(req,res,function(){
-            res.render("user.profile.edit.ejs")
+            res.render("admin.profile.edit.ejs",{
+                username:req.user.username
+            })
         })
         // res.render(path.resolve("views/userDashboard"))
     })
