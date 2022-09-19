@@ -21,7 +21,7 @@ function findBusinessOne(field, userValue,req,res) {
           console.log(err);
             res.status(500).send({
               message:
-                err.message || "Some error occurred while quering findOne email.",
+                err.message || "Some error occurred while quering findBusinessOne email.",
             });
            reject(false);
       })
@@ -63,7 +63,7 @@ function findAll(field, userValue,req,res) {
             console.log(err);
               res.status(500).send({
                 message:
-                  err.message || "Some error occurred while quering findOne email.",
+                  err.message || "Some error occurred while quering findAll email.",
               });
              reject(false);
         })
