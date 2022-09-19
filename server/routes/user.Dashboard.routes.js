@@ -169,17 +169,6 @@ router.route("/sign-out")
         // res.render("user.profile.edit.ejs")
         // res.render(path.resolve("views/userDashboard"))
     })
-
-
-    router.route("/findwindow")
-    .get(function(req,res){
-        console.log(req.user);
-        auth.isLoggedIn(req,res,function(){
-            res.render("user.findwindow.ejs")
-        })
-        // res.render(path.resolve("views/userDashboard"))
-    })
-
     .post(function(req,res){
         auth.isLoggedIn(req,res,function(){
             var user ={
@@ -218,6 +207,15 @@ router.route("/sign-out")
             //     username:req.user.username
             // })
         })
+    })
+
+    router.route("/findwindow")
+    .get(function(req,res){
+        console.log(req.user);
+        auth.isLoggedIn(req,res,function(){
+            res.render("user.findwindow.ejs")
+        })
+        // res.render(path.resolve("views/userDashboard"))
     })
 
     // router.route("/tokenDelete")

@@ -9,10 +9,11 @@ const Queue = function(queue){
 } 
 
 
-Queue.create = (queue) => {
-
+Queue.create = (queue,req,res) => {
+      console.log("crete query called",queue);
      return new Promise((resolve,reject)=>{
-      db.query("INSERT INTO queue SET ?", [qName,qType,maxToken,null,qStatus], (err, res) => {
+      db.query("INSERT INTO test.queue (qName, qType,maxToken,qStatus, b_id) VALUES (?, ?, ?, ?, ?);",
+       [queue.qName,queue.qType,queue.maxToken,queue.qStatus,queue.b_id], (err, res) => {
         if (err) {
           reject(err)
           console.log("error: ", err);

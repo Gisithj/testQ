@@ -33,17 +33,40 @@ Business.create = (business) => {
   };
 
   Business.findOne = (field,businessData) =>{
-
+    console.log(field,businessData,"in the query");
     return new Promise((resolve,reject)=>{
+      console.log(`SELECT * FROM business WHERE ${field}= ${businessData}`);
       db.query(`SELECT * FROM business WHERE ${field}= ?`,[businessData],(err,res)=>{
+        console.log(res);
+        if(err){          
+            console.log("error: ", err);
+            reject(err);
+            
+        }        
+        if(res.length>=0 || res!='undefined'){        
+            console.log(`found business when checking in ${field}`, res);
+            resolve(res);
+        }
+            
+        
+    });
+    })
+    
+  };
+
+  Business.businessUpdate = (user) =>{
+    console.log(user.zipCode,"herer");
+    return new Promise((resolve,reject)=>{
+      db.query(`UPDATE test.business SET email = ?, address = ?, zipCode = ?, telNo = ?, password =  ? WHERE (b_id = ?);`
+      ,[user.email,user.address,user.zipCode,user.telNo,user.password,user.b_id],(err,res)=>{
         if(err){          
             console.log("error: ", err);
             reject(err);
             
         }        
         if(res!=null || res!='undefined'){        
-            console.log(`found business when checking in ${field}`, res);
-            resolve(res);
+            console.log(`found users after updating `, res);
+            resolve(true);
         }
             
         
