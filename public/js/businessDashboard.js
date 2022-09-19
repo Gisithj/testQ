@@ -11,16 +11,16 @@ $(document).ready(function(){
       }
     })
 
-     $("tbody tr").click(function() {
-        window.location = '/businessDashboard/Openqueue';
-      });
+    //  $("tbody tr").click(function() {
+    //     window.location = '/businessDashboard/Openqueue';
+    //   });
 
 
-    $("tbody tr").click(function() {
-      console.log("called the js");
-      $("#rowForm").submit();
-      // window.location = '/userDashboard/findwindow';
-    });
+    // $("tbody tr").click(function() {
+    //   console.log("called the js");
+    //   $("#rowForm").submit();
+    //   // window.location = '/userDashboard/findwindow';
+    // });
 
 
 });

@@ -1,0 +1,127 @@
+ <%-include("./partials/header.ejs")%>  
+   <link rel="stylesheet" href="/public/css/signup.css">
+  <link rel="stylesheet" href="/public/css/dashboard.css">
+   <link rel="stylesheet" href="/public/css/ProfileEdit.css">
+
+    <title>Sign Up</title>
+   
+    
+
+</head>
+
+
+    <body>
+
+        <div class="main-container">
+           
+            <div class="side-bar " >
+
+                <div class="navbar " id="sidenav-collapse-main">
+                  
+                  <ul class="navbar-nav">
+                    <li class="nav-item-logo">
+                  <a class="nav-link " href="/userDashboard/myQueues">
+                    <img src="/public/images/logo-whitebg.png" width="185"  >
+                    
+                  </a>
+                  
+                
+              </li>
+                    <br>
+                    <li class="nav-item " style="border: 2px solid white;">
+                      <a class="nav-link " href="/userDashboard/profile">
+                        
+                        <span class="">Back</span>
+                      </a>
+                    </li>
+                                       
+                  </ul>
+                  </div>
+            </div>
+            <div class="secondary-container">
+                <div class="top-bar">
+                
+                <div class="top-bar-right">
+                  <button class="button-signOut" type="submit"><a href="/sign-out">Log out</a></button>
+                  <p class="text-username"><%=username %></p>
+                </div>
+                <div class="top-bar-left">
+                  <h4>Somapala Pvt Ltd</h4>
+                </div>
+            
+              
+            </div>
+
+            <div class="edittable-area">
+              <div class="form">
+                  <form id="createQueue"action="/userDashboard/profile/edit" method="post">
+                    <div class="field-container">
+                      <div class="text-box-container">
+
+                        <div class="form-field">
+                          <input type="text" name="email" >
+                          <label for="email">E-mail</label>
+                      </div>
+                  
+                      <div class="form-field">
+                          <input type="text" name="address" >
+                          <label for="address">Address</label>
+                      </div>
+                      <div class="form-field">
+                          <input type="text" name="zipcode" >
+                          <label for="zipcode">Zipcode</label>
+                      </div>
+                      <div class="form-field">
+                          <input type="text" name="telNo" >
+                          <label for="telNo">Telephone No:</label>
+                      </div>
+             
+                      <div class="form-field">
+                          <input type="text" name="password" >
+                          <label for="password">Password</label>
+                      </div>
+
+                        <!-- <div class="form-field">
+                            <input type="text" name="email" placeholder="none" value="........" required>
+                            <label for="email">E-mail</label>
+                        </div>
+                    
+                        <div class="form-field">
+                            <input type="text" name="address" placeholder="none" value="........" required>
+                            <label for="address">Address</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="zipcode" placeholder="none" value="......." required>
+                            <label for="zipcode">Zipcode</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="telNo" placeholder="none" value="......." required>
+                            <label for="telNo">Telephone No:</label>
+                        </div>
+               
+                        <div class="form-field">
+                            <input type="text" name="password" placeholder="none" required>
+                            <label for="password">Password</label>
+                        </div> -->
+                      </div>
+        
+                      <div class="form-field-business-profile button">
+                          <form action="/userDashboard/profile/edit" method="post">
+                              <button name="signUp"type="submit">Update</button>
+                          </form>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+
+          </div>
+        <script src="userDashboard.js"></script>
+
+        
+
+
+
+        
+    </body>
+
+    </html>
