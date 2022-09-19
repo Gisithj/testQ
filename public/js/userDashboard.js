@@ -12,8 +12,19 @@ $(document).ready(function(){
     })
 
     $("tbody tr").click(function() {
-        window.location = '/userDashboard/findwindow';
-      });
+      console.log("called the js");
+      $("#rowForm").submit();
+      // window.location = '/userDashboard/findwindow';
+    });
+
+      
+    // $("tbody tr").click(function() {
+    //   console.log("called the js");
+    //   $("#rowForm").submit();
+    //   // window.location = '/userDashboard/findwindow';
+    // });
+      
+      // });
 
       $("#Qtype").click(function() {
         if ($(this).is(":checked")) {
@@ -23,7 +34,9 @@ $(document).ready(function(){
         }
       });
 
-    
+      
+
+      
 
 
 });

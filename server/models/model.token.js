@@ -15,7 +15,7 @@ Token.delete = (userr_id,q_id) => {
          console.log("error: ", err);
        }
        if(res!=null || res!='undefined'){        
-        console.log(`found users after updating `, res);
+        console.log(`found users after delete `, res);
         resolve(true);
     }
      

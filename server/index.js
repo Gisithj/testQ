@@ -59,20 +59,26 @@ app.use("/user-sign-up",user);
 app.use("/admin",admin)
 app.use("/admin-sign-in",admin_sign_in)
 app.use("/adminDashboard",adminDashboard)
+
 app.use("/userDashboard",userDashboard)
 app.use("/userDashboard/myQueues",userDashboard)
 app.use("/userDashboard/findQueues",userDashboard)
 app.use("/userDashboard/profile",userDashboard)
-app.use("/userDashboard/settings",userDashboard)
+app.use("/userDashboard/tokenDelete",userDashboard);
+app.use("/userDashboard/findQueues/findWindow",userDashboard);
+
 
 app.use("/business-sign-up",business);
 app.use("/business-sign-in",business_sign_in);
 app.use("/businessDashboard",businessDashboard)
 app.use("/businessDashboard/profile",businessDashboard)
+app.use("/businessDashboard/queueDelete",businessDashboard);
+
+
 
 app.use("/sign-out",logout)
 
-app.use("/userDashboard/tokenDelete",userDashboard);
+
 
 
 

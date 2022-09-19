@@ -71,6 +71,27 @@ function findAll(field, userValue,req,res) {
     
 }
 
+function OpenOneQueue(field, q_Id,userr_Id,req,res) {
+
+  return new Promise((resolve,reject)=>{
+      Queue.OpenOneQueue(q_Id,userr_Id).then(result=>{
+          if(result){
+              resolve(result);
+          }else{
+              resolve(false);
+          }
+      }).catch(err=>{
+          console.log(err);
+            res.status(500).send({
+              message:
+                err.message || "Some error occurred while quering findOne email.",
+            });
+           reject(false);
+      })
+  })
+  
+}
+
 async function create(req, res) {
 
   console.log("create called");
@@ -101,7 +122,7 @@ function findAllLike(userValue,req,res) {
 
     return new Promise((resolve,reject)=>{
         Queue.findAllLike(userValue).then(result=>{
-            console.log("query result find like",result);
+            // console.log("query result find like",result);
             if(result!=0 && result!=null){
               isExist = true;
                 resolve(result);
@@ -120,6 +141,27 @@ function findAllLike(userValue,req,res) {
     
 }
 
+function queueDelete(q_id,req,res) {
 
-module.exports = { create,findAll,findOne ,findAllLike,findBusinessOne};
+  return new Promise((resolve,reject)=>{
+      Queue.delete(q_id).then(result=>{
+          if(result){
+              resolve(result);
+          }else{
+            resolve(false)
+          }
+      }).catch(err=>{
+          console.log(err);
+            res.status(500).send({
+              message:
+                err.message || "Some error occurred while quering findOne email.",
+            });
+           reject(false);
+      })
+  })
+  
+}
+
+
+module.exports = { create,findAll,findOne ,findAllLike,findBusinessOne,OpenOneQueue,queueDelete};
 

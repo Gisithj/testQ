@@ -5,7 +5,7 @@ const auth = require("./auth.routes");
 const { route } = require("./user.sign-in.routes");
 const queue = require("../controllers/queue.controller")
 const user = require("../controllers/user.controller")
-const userDashboard = require("../controllers/userDashboard.controller");
+const userDashboard = require("../controllers/userDashboard.controller")
 
 
 router.route("/")
@@ -43,19 +43,12 @@ router.route("/")
 router.route("/findQueues")
 .get(function(req,res){
     auth.isLoggedIn(req,res,function(){
-        queue.findAll("userr_Id",req.user.id).then(result=>{
-            console.log(result,"here");
-            if(result){
+        var keyword ="";
+        queue.findAllLike(keyword,req,res).then(result=>{
+            if(result!=0 && result!=null){
                 res.render("user.findqueues.ejs",{
                     username: req.user.username,
                     queueData:result
-        
-                })
-            }else{
-                console.log("no queue");
-                res.render("user.findqueues.ejs",{
-                    username: req.user.username,
-                    queueData:false
         
                 })
             }
@@ -67,10 +60,35 @@ router.route("/findQueues")
               });
              reject(false);
         })
+        // queue.findAll("userr_Id",req.user.id).then(result=>{
+        //     console.log(result,"here");
+        //     if(result){
+        //         res.render("user.findqueues.ejs",{
+        //             username: req.user.username,
+        //             queueData:result
+        
+        //         })
+        //     }else{
+        //         console.log("no queue");
+        //         res.render("user.findqueues.ejs",{
+        //             username: req.user.username,
+        //             queueData:false
+        
+        //         })
+        //     }
+        // }).catch(err=>{
+        //     console.log(err);
+        //       res.status(500).send({
+        //         message:
+        //           err.message || "Some error occurred while quering findOne email.",
+        //       });
+        //      reject(false);
+        // })
         
     })
 })
 .post( function(req, res){
+    console.log("called`");
     auth.isLoggedIn(req,res,function(){
         var keyword =req.body.search;
         queue.findAllLike(keyword,req,res).then(result=>{
@@ -170,19 +188,11 @@ router.route("/sign-out")
         // res.render(path.resolve("views/userDashboard"))
     })
     .post(function(req,res){
-        auth.isLoggedIn(req,res,function(){
-            var user ={
-                user_id:req.user.id,
-                email :req.body.email,
-                address:req.body.address,
-                zipCode:req.body.zipcode,
-                telNo: req.body.telNo,
-                password:req.body.password,
-            }
+        auth.isLoggedIn(req,res,function(){            
 
             auth.isLoggedIn(req,res,function(){
                 console.log(user,"data from form");
-                userDashboard.userUpdate(user,req,res).then(result=>{
+                user.userUpdate(req,res).then(result=>{
                     console.log("profileehhhh",result);
                     if(result){
                         res.redirect("/userDashboard/profile")
@@ -209,41 +219,61 @@ router.route("/sign-out")
         })
     })
 
-    router.route("/findwindow")
+    router.route("/findQueues/findWindow")
     .get(function(req,res){
-        console.log(req.user);
+        console.log("Herererererererer");
+        // console.log(req.user);
         auth.isLoggedIn(req,res,function(){
             res.render("user.findwindow.ejs")
         })
-        // res.render(path.resolve("views/userDashboard"))
     })
+    .post(function(req,res){
+            console.log("findrow post",req.body.q_id);
+            auth.isLoggedIn(req,res,function(){
+                queue.OpenOneQueue("q_Id",req.body.q_id,req.user.id).then(result=>{
+                    if(result){
+                        res.render("user.findwindow.ejs",{
+                            username: req.user.username,
+                            queueData:result
+                
+                        })
+                    }else{
+                        console.log("in the else");
+                        res.render("user.findwindow.ejs",{
+                            username: req.user.username,
+                            queueData:null
+                
+                        })
+                    }
+                
+            })
+        // res.render(path.resolve("views/userDashboard"))
+    })})
 
-    // router.route("/tokenDelete")
-    // .post( function(req, res, next){
-    //     auth.isLoggedIn(req,res,function(){
-    //         var q_id = req.body.userTokenDelete;
-    //         var user_id = req.user.id;
-    //         console.log("in the token delete",q_id,user_id);
-    //         userDashboard.tokenDelete(user_id,q_id,res,res).then(result=>{
-    //             if(result){
-    //                 res.render("userDashboard",{
-    //                     username: req.user.username,
-    //                     queueData:null
-            
-    //                 })
-    //             }else{
-    //                 console.log("token did not deleted");
-    //             }
-    //         }).catch(err=>{
-    //             console.log(err);
-    //               res.status(500).send({
-    //                 message:
-    //                   err.message || "Some error occurred while quering findOne email.",
-    //               });
-    //              reject(false);
-    //         })
-    //     })
-    // });
+
+    router.route("/tokenDelete")
+    .post( function(req, res, next){
+        auth.isLoggedIn(req,res,function(){
+
+            var q_id = req.body.q_id
+            var user_id = req.user.id;
+
+            console.log("in the token delete",q_id,user_id);
+            userDashboard.tokenDelete(user_id,q_id,res,res).then(result=>{
+                if(result){
+                    res.redirect("/userDashboard")
+                }else{
+                    console.log("token did not deleted");
+                }
+            }).catch(err=>{
+                console.log(err);
+                  res.status(500).send({
+                    message:
+                      err.message || "Some error occurred while quering findOne email.",
+                  });
+            })
+        })
+    });
 
 
 
