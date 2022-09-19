@@ -22,6 +22,12 @@
           </li>
           <br>
             </li>
+            <li class="nav-item active-nav-item">
+              <a class="nav-link " href="/businessDashboard">
+                
+                <span class="">Back</span>
+              </a>
+            </li>
             <!-- <li class="nav-item active-nav-item">
               <a class="nav-link " href="/userDashboard/myQueues">
                 
@@ -62,9 +68,9 @@
    
     
     <script src="../public/js/businessDashboard.js"></script>
-
+    <div class="frm-cont">
     <form id="createQueue"action="/" method="post" name="queue">
-        <div class="short-field1">
+        <div class="short-field1" style="text-align: center;">
             <div class="form-field ">
                 <h2 id="currentToken">Current Token</h2>
             </div>
@@ -73,7 +79,7 @@
             
         </div>
         
-    <center>
+
         <div class="form-field button">
             <button name="Done"type="submit">Done</button>
         </div>
@@ -82,9 +88,8 @@
             <button name="Skip"type="submit">Skip</button>
         </div>
 
-    </center>
     </form>
-
+    </div>
     <SCRIPT LANGUAGE="JavaScript">
       function checkLimit() {        
        if( $('#Qtype').val()=='Unlimited'){  

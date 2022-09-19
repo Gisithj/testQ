@@ -1,5 +1,6 @@
 <%- include("../views/partials/header.ejs") %>
 
+
   <link rel="stylesheet" href="/public/css/dashboard.css">
   <title>Dashboard</title>
   </head>
@@ -115,6 +116,7 @@
                               <form action="/userDashboard/tokenDelete" method="post">
                                 <input type="submit" class="dlt" name="userTokenDelete" value="<%= queueData[i].q_id %>"> 
                               </form>
+
                             </div>
 
                           </td>
