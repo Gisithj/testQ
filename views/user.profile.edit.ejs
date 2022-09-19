@@ -1,6 +1,7 @@
  <%-include("./partials/header.ejs")%>  
    <link rel="stylesheet" href="/public/css/signup.css">
    <link rel="stylesheet" href="/public/css/dashboard.css">
+   <link rel="stylesheet" href="/public/css/ProfileEdit.css">
 
     <title>Sign Up</title>
    
@@ -27,7 +28,7 @@
                 
               </li>
                     <br>
-                    <li class="nav-item active-nav-item">
+                    <li class="nav-item " style="border: 2px solid white;">
                       <a class="nav-link " href="/userDashboard/profile">
                         
                         <span class="">Back</span>
@@ -51,44 +52,46 @@
               
             </div>
 
-              <div class="frm-cont">
-                     <form id="createQueue"action="/userDashboard/profile/edit" method="post">
-                        <div class="short-field1">
-                            
-                        
-                        <div class="form-field ">
+            <div class="edittable-area">
+              <div class="form">
+                  <form id="createQueue"action="/userDashboard/profile/edit" method="post">
+                    <div class="field-container">
+                      <div class="text-box-container">
+
+                        <div class="form-field">
                             <input type="text" name="email" placeholder="none" value="<%=queueData[0].email%>" required>
-                                <label for="email">E-mail</label>
+                            <label for="email">E-mail</label>
+                        </div>
                     
-                        <div class="form-field ">
+                        <div class="form-field">
                             <input type="text" name="address" placeholder="none" value="<%=queueData[0].address%>" required>
-                                <label for="address">Address</label>
+                            <label for="address">Address</label>
                         </div>
-                        <div class="form-field ">
+                        <div class="form-field">
                             <input type="text" name="zipcode" placeholder="none" value="<%=queueData[0].zipCode%>" required>
-                                <label for="zipcode">Zipcode</label>
+                            <label for="zipcode">Zipcode</label>
                         </div>
-                        <div class="form-field ">
+                        <div class="form-field">
                             <input type="text" name="telNo" placeholder="none" value="<%=queueData[0].telNo%>" required>
-                                <label for="telNo">Telephone No:</label>
+                            <label for="telNo">Telephone No:</label>
                         </div>
                
-                        <div class="form-field ">
+                        <div class="form-field">
                             <input type="text" name="password" placeholder="none" required>
-                                <label for="password">Password</label>
+                            <label for="password">Password</label>
                         </div>
+                      </div>
         
-    
-                        <div class="form-field button">
+                      <div class="form-field-business-profile button">
                           <form action="/userDashboard/profile/edit" method="post">
-                              <button name="signUp"type="submit">Submit</button>
-                            </form>
-                        </div>
-                    </form>
+                              <button name="signUp"type="submit">Update</button>
+                          </form>
+                      </div>
+                    </div>
+                  </form>
               </div>
-                
 
-              </div>
+          </div>
         <script src="userDashboard.js"></script>
 
         

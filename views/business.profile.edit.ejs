@@ -1,6 +1,7 @@
  <%-include("./partials/header.ejs")%>  
    <link rel="stylesheet" href="/public/css/signup.css">
    <link rel="stylesheet" href="/public/css/dashboard.css">
+   <link rel="stylesheet" href="/public/css/ProfileEdit.css">
 
     <title>Sign Up</title>
    
@@ -27,7 +28,7 @@
                 
               </li>
                     <br>
-                    <li class="nav-item active-nav-item">
+                    <li class="nav-item" style="border: 2px solid white;">
                       <a class="nav-link " href="/businessDashboard/profile">
                         
                         <span class="">Back</span>
@@ -50,46 +51,85 @@
             
               
             </div>
-
-              <div class="frm-cont">
+            <div class="edittable-area">
+              <div class="form">
+                
+                <form action="/user-sign-in" method="post">
+                    <div class="field-container">
+                      <div class="text-box-container">
+                        <div class="form-field">
+                          <input type="text" name="email" placeholder="none" value="<%=queueData[0].email%>" required>
+                          <label for="email">E-mail</label>
+                        </div>
+                        <div class="form-field">
+                          <input type="text" name="address" placeholder="none" value="<%=queueData[0].address%>" required>
+                          <label for="address">Address</label>
+                        </div>
+                        <div class="form-field">
+                          <input type="text" name="zipcode" placeholder="none" value="<%=queueData[0].zipCode%>" required>
+                          <label for="zipcode">Zipcode</label>
+                        </div>
+                        <div class="form-field">
+                          <input type="text" name="telNo" placeholder="none" value="<%=queueData[0].telNo%>" required>
+                          <label for="telNo">Telephone No:</label>
+                        </div>
+                        <div class="form-field">
+                          <input type="password" name="password" placeholder="none" value="<%=queueData[0].password%>" required>
+                          <label for="password">Password</label>
+                        </div>
+                        <div class="form-field">
+                          
+                        </div>
+                      </div>
+                      <div class="form-field-business-profile button ">
+                        <form action="/businessDashboard/profile/edit" method="post">
+                          <button name="signUp"type="submit">Update</button>
+                          </form>
+                      </div>
+                    </div>
+           
+                </form>
+            </div>
+             
+              <!-- <div class="frm-cont">
+                
                      <form id="createQueue"action="/businessDashboard/profile/edit" method="post">
-                        <div class="short-field1">
-                            
-                           
-                            <div class="form-field ">
-                                <input type="text" name="email" placeholder="none" value="<%=queueData[0].email%>" required>
-                                    <label for="email">E-mail</label>
+                      
+                          <div class="short-field1">
+                    
+                            <div class="form-edit ">
+                                
                             </div>
                           
-                            <div class="form-field ">
-                                <input type="text" name="address" placeholder="none" value="<%=queueData[0].address%>" required>
-                                    <label for="address">Address</label>
+                            <div class="form-edit ">
+                                
                             </div>
-                            <div class="form-field ">
-                                <input type="text" name="zipcode" placeholder="none" value="<%=queueData[0].zipCode%>" required>
-                                    <label for="zipcode">Zipcode</label>
+                            <div class="form-edit ">
+                                
                             </div>
-                            <div class="form-field ">
-                                <input type="text" name="telNo" placeholder="none" value="<%=queueData[0].telNo%>" required>
-                                    <label for="telNo">Telephone No:</label>
+                            <div class="form-edit ">
+                                
                             </div>
                             
-                            <div class="form-field ">
-                                <input type="password" name="password" placeholder="none" value="<%=queueData[0].password%>" required>
-                                    <label for="password">Password</label>
+                            <div class="form-edit ">
+                                
                             </div>
-                        </div>
-        
-    
-                        <div class="form-field button">
-                              <form action="/businessDashboard/profile/edit" method="post">
-                                <button name="signUp"type="submit">Update</button>
+
+                            <div class="form-field button">
+                              
                               </form>
                                 
 
                                
+                            </div>
                         </div>
+        
+                      
+                       
+                      
                     </form>
+                  </div> -->
+              
               </div>
                 
 
