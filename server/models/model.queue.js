@@ -12,7 +12,7 @@ const Queue = function(queue){
 Queue.create = (queue,req,res) => {
       console.log("crete query called",queue);
      return new Promise((resolve,reject)=>{
-      db.query("INSERT INTO test.queue (qName, qType,maxToken,qStatus, b_id) VALUES (?, ?, ?, ?, ?);",
+      db.query("INSERT INTO test.queue (qName, qType,maxToken,qStatus, b_id,currentToken) VALUES (?, ?, ?, ?, ?,'0');",
        [queue.qName,queue.qType,queue.maxToken,queue.qStatus,queue.b_id], (err, res) => {
         if (err) {
           reject(err)
@@ -72,11 +72,10 @@ Queue.create = (queue,req,res) => {
   Queue.OpenOneQueue = (q_Id,userr_Id) =>{
 
     return new Promise((resolve,reject)=>{
-      db.query(`SELECT distinct  queue.qName, queue.maxToken, current_token.currentToken
+      db.query(`SELECT distinct  queue.qName, queue.maxToken, queue.currentToken
       FROM queue 
-      INNER JOIN current_token ON current_token.q_id = queue.q_id
       INNER JOIN token ON token.q_id = queue.q_id
-      where token.userr_id = ? and token.q_id = ?;`,[q_Id,userr_Id],(err,res)=>{
+      where token.userr_id = ? and token.q_id = ?;`,[userr_Id,q_Id],(err,res)=>{
         if(err){          
             console.log("error: ", err);
             reject(err);
@@ -99,9 +98,8 @@ Queue.create = (queue,req,res) => {
     //   FROM queue 
     //   INNER JOIN token ON token.q_id = queue.q_id
     //   where token.${field} != ?; `,[userValue],(err,res)=>{
-        db.query(`SELECT distinct  queue.qName, queue.qType, queue.maxToken, queue.tokenRemain, current_token.currentToken, queue.qStatus 
-        FROM queue 
-        INNER JOIN current_token ON current_token.q_id = queue.q_id; `,[userValue],(err,res)=>{
+        db.query(`SELECT distinct  queue.qName, queue.qType, queue.maxToken, queue.tokenRemain, queue.currentToken, queue.qStatus 
+        FROM queue ; `,[userValue],(err,res)=>{
         if(err){          
             console.log("error: ", err);
             reject(err);
