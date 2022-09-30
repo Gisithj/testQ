@@ -8,6 +8,8 @@ const user = require("../controllers/user.controller")
 const userDashboard = require("../controllers/userDashboard.controller")
 
 
+
+
 router.route("/")
 .get(function(req,res){
     auth.isLoggedIn(req,res,function(){
@@ -43,36 +45,12 @@ router.route("/")
 router.route("/findQueues")
 .get(function(req,res){
     auth.isLoggedIn(req,res,function(){
-        var keyword ="";
-        queue.findAll(keyword,req,res).then(result=>{
-            if(result!=0 && result!=null){
-                res.render("user.findqueues.ejs",{
-                    username: req.user.username,
-                    queueData:result
-        
-                })
-            }
-        }).catch(err=>{
-            console.log(err);
-              res.status(500).send({
-                message:
-                  err.message || "Some error occurred while quering findOne email.",
-              });
-             reject(false);
-        })
-        // queue.findAll("userr_Id",req.user.id).then(result=>{
-        //     console.log(result,"here");
-        //     if(result){
+        // var keyword ="";
+        // queue.findAll(keyword,req,res).then(result=>{
+        //     if(result!=0 && result!=null){
         //         res.render("user.findqueues.ejs",{
         //             username: req.user.username,
         //             queueData:result
-        
-        //         })
-        //     }else{
-        //         console.log("no queue");
-        //         res.render("user.findqueues.ejs",{
-        //             username: req.user.username,
-        //             queueData:false
         
         //         })
         //     }
@@ -84,6 +62,30 @@ router.route("/findQueues")
         //       });
         //      reject(false);
         // })
+        queue.findAll("userr_Id",req.user.id).then(result=>{
+            console.log(result,"here");
+            if(result){
+                res.render("user.findqueues.ejs",{
+                    username: req.user.username,
+                    queueData:result
+        
+                })
+            }else{
+                console.log("no queue");
+                res.render("user.findqueues.ejs",{
+                    username: req.user.username,
+                    queueData:false
+        
+                })
+            }
+        }).catch(err=>{
+            console.log(err);
+              res.status(500).send({
+                message:
+                  err.message || "Some error occurred while quering findOne email.",
+              });
+             reject(false);
+        })
         
     })
 })
@@ -247,21 +249,23 @@ router.route("/sign-out")
                     }
                 
             })
-        // res.render(path.resolve("views/userDashboard"))
     })})
 
 
     router.route("/tokenDelete")
     .post( function(req, res, next){
+        console.log("delete called");
         auth.isLoggedIn(req,res,function(){
 
-            var q_id = req.body.q_id
+            var q_id = req.body.q_Id;
             var user_id = req.user.id;
+            console.log("password",req.body.name);
 
             console.log("in the token delete",q_id,user_id);
             userDashboard.tokenDelete(user_id,q_id,res,res).then(result=>{
                 if(result){
-                    res.redirect("/userDashboard")
+                    console.log("delete result",result);
+                    res.redirect("/")
                 }else{
                     console.log("token did not deleted");
                 }

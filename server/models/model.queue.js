@@ -50,7 +50,7 @@ Queue.create = (queue,req,res) => {
 
     return new Promise((resolve,reject)=>{
       // db.query(`SELECT * FROM  queue where ${field} = ?; `,[userValue],(err,res)=>{
-        db.query(`SELECT queue.qName, queue.qType, queue.tokenRemain,queue.qStatus 
+        db.query(`SELECT queue.q_Id,queue.qName, queue.qType, queue.tokenRemain,queue.qStatus 
           FROM queue 
           INNER JOIN token ON token.q_id = queue.q_id
           where token.userr_id = ?;`,[userValue],(err,res)=>{
@@ -94,16 +94,15 @@ Queue.create = (queue,req,res) => {
   Queue.findAll = (field,userValue) =>{
     console.log(field,userValue);
     return new Promise((resolve,reject)=>{
-    //   db.query(`SELECT DISTINCT queue.qName, queue.qType, queue.maxToken,queue.tokenRemain,queue.qStatus 
-    //   FROM queue 
-    //   INNER JOIN token ON token.q_id = queue.q_id
-    //   where token.${field} != ?; `,[userValue],(err,res)=>{
-        db.query(`SELECT distinct  queue.qName, queue.qType, queue.maxToken, queue.tokenRemain, queue.currentToken, queue.qStatus 
-        FROM queue ; `,[userValue],(err,res)=>{
+      db.query(` select distinct queue.q_Id, queue.qName, queue.qType, queue.maxToken, queue.tokenRemain, queue.currentToken, queue.qStatus
+       from test.queue right join test.token on 
+      test.queue.q_Id  not in (select q_id from test.token where userr_id = ?);  `,[userValue],(err,res)=>{
+        // db.query(`SELECT distinct  queue.qName, queue.qType, queue.maxToken, queue.tokenRemain, queue.currentToken, queue.qStatus 
+        // FROM queue ; `,[userValue],(err,res)=>{
         if(err){          
             console.log("error: ", err);
             reject(err);
-            
+           
         }        
         if(res!=null || res!='undefined'){        
             // console.log(`findAll found queues when checking in ${field}`, res);
