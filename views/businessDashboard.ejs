@@ -14,7 +14,7 @@
           <ul class="navbar-nav">
             <li class="nav-item-logo">
               <a class="nav-link " href="/userDashboard">
-                <img src="../public/images/logo-whitebg.png" width="185"  >
+                <img src="../public/images/logo-white.png" width="185"  >
                 
               </a>
               
@@ -25,14 +25,14 @@
             <li class="nav-item active-nav-item">
               <a class="nav-link " href="/businessDashboard">
                 
-                <span class="">My Business</span>
+                <span class=""><i class="fas fa-thin fa-user sidebar-icon"></i>My Business</span>
               </a>
             </li>
             
             <li class="nav-item">
               <a class="nav-link  " href="/businessDashboard/profile">
                 
-                <span class="">Profile</span>
+                <span class=""><i class="fas fa-thin fa-user sidebar-icon"></i>Profile</span>
               </a>
             </li>
                         
@@ -109,25 +109,10 @@
                   </td> -->
                   <td class="align-middle">
                     <div class ="middle">  
-                       <form id ="<%=queueData[i].q_Id%>" action="/businessDashboard/queueDelete" method="post">
-                  
-                    <button id="btn-queue-delete"class="dlt" onclick="submit<%=queueData[i].q_Id%>()"> Delete<input type="hidden" name="q_id"value="<%=queueData[i].q_Id%>"  > </button> 
+                    <button id="btn-queue-delete" class="dlt" value="<%=queueData[i].q_Id%>"><i class="fas fa-light fa-trash delete-icon"></i></button> 
                   </div>
-                    
-                 </form></td>
+              </td>
                 </tr>
-
-                <script LANGUAGE="JavaScript">
-
-  
-    
-                  function submit<%=queueData[i].q_Id%>()
-                  {        
-                    console.log("called the js");
-                  $("#<%=queueData[i].q_Id%>").submit();
-                  }
-             
-            </script>
 
                <% }}%>
 
