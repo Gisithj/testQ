@@ -67,6 +67,7 @@ app.use("/userDashboard/findQueues",userDashboard)
 app.use("/userDashboard/profile",userDashboard)
 app.use("/userDashboard/tokenDelete",userDashboard);
 app.use("/userDashboard/findQueues/findWindow",userDashboard);
+app.use("/userDashboard/findQueues/findWindow/add",userDashboard);
 
 
 app.use("/business-sign-up",business);

@@ -185,7 +185,7 @@ router.route("/queueDelete")
 .post( function(req, res, next){
     auth.isLoggedIn(req,res,function(){
 
-        var q_id = req.body.q_id
+        var q_id = req.body.q_Id
 
         console.log("in the queue delete",q_id);
         queue.queueDelete(q_id,res,res).then(result=>{

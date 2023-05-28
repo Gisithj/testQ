@@ -108,19 +108,17 @@ input:not(:placeholder-shown)+label{
     .short{
         width: 216px;
     }
- }
-
- @media screen and (max-width: 500px) {
-
     div.side-bar{
         display: none;
     }
-    
-    /* .short-fields{
-        flex-direction: column;
-        gap: 0;
+
+    .row{
+        font-size: 10px;
     }
-    .short{
-        width: 216px;
-    } */
  }
+
+ /* @media screen and (max-width: 500px) {
+
+   
+   
+ } */

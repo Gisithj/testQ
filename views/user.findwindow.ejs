@@ -22,7 +22,7 @@
         </li>
         <br>
         <li class="nav-item">
-          <a class="nav-link " href="/userDashboard">
+          <a class="nav-link " href="/userDashboard/findQueues">
             
             <span class="">Back</span>
           </a>
@@ -47,23 +47,26 @@
         <h3 class="">Queue Details</h3>
       </div>
       <div style="display: flex; flex-direction: column">
+        <p id="q_Id" class="hide"><%= queueData[0].q_id%></p>
         <div class="card">
           <div class="block blue">
             <div class="heading">Queue Name</div>
-            <div class="num">ABC</div>
+            <div class="num"><%=queueData[0].qName %> </div>
           </div>
     
           <div class="block green">
             <div class="heading">On Going Token</div>
-            <div class="num">22</div>
+            <% var current =  (queueData[0].maxToken - queueData[0].currentToken) %>
+            <div class="num"><%= current%></div>
           </div>
     
           <div class="block maroon">
             <div class="heading">Max Token</div>
-            <div class="num">100</div>
+            <div class="num"><%=queueData[0].maxToken%></div>
           </div>
         </div>
       <div class="card">
+        <form action="" method="post"></form>
         <button class="adt"> Admit </button>
       </div>
     </div>

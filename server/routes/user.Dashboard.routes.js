@@ -230,10 +230,11 @@ router.route("/sign-out")
         })
     })
     .post(function(req,res){
-            console.log("findrow post",req.body.q_id);
+            console.log("findrow post",req.body.q_Id);
             auth.isLoggedIn(req,res,function(){
-                queue.OpenOneQueue("q_Id",req.body.q_id,req.user.id).then(result=>{
+                queue.OpenOneQueue(req.body.q_Id).then(result=>{
                     if(result){
+                        console.log(result);
                         res.render("user.findwindow.ejs",{
                             username: req.user.username,
                             queueData:result
@@ -259,13 +260,38 @@ router.route("/sign-out")
 
             var q_id = req.body.q_Id;
             var user_id = req.user.id;
-            console.log("password",req.body.name);
 
             console.log("in the token delete",q_id,user_id);
             userDashboard.tokenDelete(user_id,q_id,res,res).then(result=>{
                 if(result){
                     console.log("delete result",result);
                     res.redirect("/")
+                }else{
+                    console.log("token did not deleted");
+                }
+            }).catch(err=>{
+                console.log(err);
+                  res.status(500).send({
+                    message:
+                      err.message || "Some error occurred while quering findOne email.",
+                  });
+            })
+        })
+    });
+
+
+    router.route("/findQueues/findWindow/add")
+    .post( function(req, res, next){
+        console.log("add called");
+        auth.isLoggedIn(req,res,function(){
+
+            var q_id = req.body.q_Id;
+            var user_id = req.user.id;
+
+            console.log("in the token add",q_id,user_id);
+            userDashboard.tokenAdd(user_id,q_id,res,res).then(result=>{
+                if(result){
+                    res.redirect("/userDashboard")
                 }else{
                     console.log("token did not deleted");
                 }

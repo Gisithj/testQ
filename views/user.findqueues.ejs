@@ -15,7 +15,7 @@
       <ul class="navbar-nav">
         <li class="nav-item-logo">
           <a class="nav-link " href="/userDashboard">
-            <img src="../public/images/logo-whitebg.png" width="185">
+            <img src="../public/images/logo-white.png" width="185">
 
           </a>
 
@@ -25,19 +25,19 @@
         <li class="nav-item ">
           <a class="nav-link " href="/userDashboard">
 
-            <span class="">My Queues</span>
+            <span class=""><i class="fas fa-light fa-bars sidebar-icon"></i>My Queues</span>
           </a>
         </li>
         <li class="nav-item active-nav-item">
           <a class="nav-link " href="/userDashboard/findQueues">
 
-            <span class="">Find Queues</span>
+            <span class=""><i class="fas fa-regular fa-magnifying-glass sidebar-icon"></i>Find Queues</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link  " href="/userDashboard/profile">
 
-            <span class="">Profile</span>
+            <span class=""><i class="fas fa-thin fa-user sidebar-icon"></i>Profile</span>
           </a>
         </li>
         
@@ -70,7 +70,7 @@
 
     </div>
     <div class="card-body px-0 pb-2">
-      <table class="table">
+      <table class="table findQueues">
         <thead class="table-header">
           <tr>
             <th class="table-header-column">Queue Name</th>
@@ -90,6 +90,9 @@
                   <input type="hidden" name="q_id"value="<%=queueData[i].q_Id%>">
                 </form>
                 <tr class="row">
+                  <td class="q_Id hide">
+                    <p id="q_Id"><%= queueData[i].q_Id%></p>
+                  </td>
                   <td>
                     <p><%= queueData[i].qName%></p>
                   </p>
@@ -102,6 +105,9 @@
                   </td>
                   <td class="comp">
                     <p><%= queueData[i].tokenRemain%></p>
+                  </td>
+                  <td class="comp">
+                    <p><%= queueData[i].currentToken%></p>
                   </td>
                   <td class="comp">
                     <p><%= queueData[i].qStatus%></p>

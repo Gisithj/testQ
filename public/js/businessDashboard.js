@@ -11,6 +11,23 @@ $(document).ready(function(){
       }
     })
 
+    $("table button").click(function(){
+    
+      var buttonVal = $(this).val();
+      console.log(buttonVal);
+      fetch("/businessDashboard/queueDelete", {
+        method: "post",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      
+        body: JSON.stringify({
+          q_Id : buttonVal,
+        })
+      })
+        .then((res) => window.location = '/businessDashboard');
+    })
+
     //  $("tbody tr").click(function() {
     //     window.location = '/businessDashboard/Openqueue';
     //   });

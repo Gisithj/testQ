@@ -12,7 +12,7 @@ const Queue = function(queue){
 Queue.create = (queue,req,res) => {
       console.log("crete query called",queue);
      return new Promise((resolve,reject)=>{
-      db.query("INSERT INTO test.queue (qName, qType,maxToken,qStatus, b_id,currentToken) VALUES (?, ?, ?, ?, ?,'0');",
+      db.query("INSERT INTO test.queue (qName, qType,maxToken,qStatus, b_id,currentToken) VALUES (?, ?, ?, ?, ?,0);",
        [queue.qName,queue.qType,queue.maxToken,queue.qStatus,queue.b_id], (err, res) => {
         if (err) {
           reject(err)
@@ -50,7 +50,7 @@ Queue.create = (queue,req,res) => {
 
     return new Promise((resolve,reject)=>{
       // db.query(`SELECT * FROM  queue where ${field} = ?; `,[userValue],(err,res)=>{
-        db.query(`SELECT queue.q_Id,queue.qName, queue.qType, queue.tokenRemain,queue.qStatus 
+        db.query(`SELECT queue.q_Id,queue.qName, queue.qType,queue.maxToken,token.token_Id, queue.tokenRemain,queue.qStatus 
           FROM queue 
           INNER JOIN token ON token.q_id = queue.q_id
           where token.userr_id = ?;`,[userValue],(err,res)=>{
@@ -69,17 +69,18 @@ Queue.create = (queue,req,res) => {
     })
   };
 
-  Queue.OpenOneQueue = (q_Id,userr_Id) =>{
+  Queue.OpenOneQueue = (q_Id) =>{
 
     return new Promise((resolve,reject)=>{
-      db.query(`SELECT distinct  queue.qName, queue.maxToken, queue.currentToken
-      FROM queue 
-      INNER JOIN token ON token.q_id = queue.q_id
-      where token.userr_id = ? and token.q_id = ?;`,[userr_Id,q_Id],(err,res)=>{
+      // db.query(`SELECT distinct  queue.qName, queue.maxToken, queue.currentToken
+      // FROM queue 
+      // INNER JOIN token ON token.q_id = queue.q_id
+      // where token.userr_id = ? and token.q_id = ?;`,[userr_Id,q_Id],(err,res)=>{
+        db.query(`SELECT  queue.q_id,queue.qName, queue.maxToken, queue.currentToken
+        FROM queue where queue.q_id = ?;`,[q_Id],(err,res)=>{
         if(err){          
             console.log("error: ", err);
-            reject(err);
-            
+            reject(err);            
         }        
         if(res!=null || res!='undefined'){        
             console.log(` OpenOneQueue checking in`, res);

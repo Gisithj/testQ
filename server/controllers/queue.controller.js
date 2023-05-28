@@ -71,10 +71,10 @@ function findAll(field, userValue,req,res) {
     
 }
 
-function OpenOneQueue(field, q_Id,userr_Id,req,res) {
+function OpenOneQueue(q_Id,req,res) {
 
   return new Promise((resolve,reject)=>{
-      Queue.OpenOneQueue(q_Id,userr_Id).then(result=>{
+      Queue.OpenOneQueue(q_Id).then(result=>{
           if(result){
               resolve(result);
           }else{
